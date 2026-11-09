@@ -377,6 +377,18 @@ function initModals() {
       const subject = modalSubject.value;
       const notes = document.getElementById('form-notes').value;
 
+      // Registro automático en Firebase de Jeanette
+      if (typeof window.saveWebLeadToFirebase === 'function') {
+        window.saveWebLeadToFirebase({
+          nombre: name,
+          telefono: phone,
+          email: email,
+          asunto: subject,
+          notas: notes,
+          origen: 'modal_asesoria'
+        });
+      }
+
       // Notificación al usuario
       showToast(currentLang === 'es' 
         ? "¡Solicitud recibida! Jeanette se comunicará contigo a la brevedad." 

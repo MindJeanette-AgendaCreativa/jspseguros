@@ -831,6 +831,43 @@
   </div>
 
   <!-- Script interactivo -->
-  <script src="app.js?v=1.0"></script>
+  <script src="app.js?v=1.1"></script>
+
+  <!-- Firebase SDK para JSP Seguros Web (Analytics y Registro de Solicitudes) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAubvmBQUQhgeVV8NsWBamQo6Rj862FmfY",
+      authDomain: "mindjeanette-agendacreativa.firebaseapp.com",
+      projectId: "mindjeanette-agendacreativa",
+      storageBucket: "mindjeanette-agendacreativa.firebasestorage.app",
+      messagingSenderId: "483486651960",
+      appId: "1:483486651960:web:8148fbfe7ac82d08dc78cd",
+      measurementId: "G-RWRVVGGXVK"
+    };
+
+    try {
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getFirestore(app);
+
+      window.saveWebLeadToFirebase = async function(leadData) {
+        try {
+          await addDoc(collection(db, "solicitudes_web"), {
+            ...leadData,
+            fecha: new Date().toISOString(),
+            createdAt: serverTimestamp()
+          });
+        } catch (err) {
+          console.warn("Solicitud web registrada:", err?.message || err);
+        }
+      };
+    } catch(e) {
+      console.warn("Firebase Web:", e);
+    }
+  </script>
 </body>
 </html>
