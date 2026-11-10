@@ -1,174 +1,194 @@
 /**
  * JSP SEGUROS · JEANETTE SALINAS PONCE
- * Motor interactivo: Bilingüe (ES/EN), Selector Modular (Feather),
- * Cotizador Express SOAPEX/RCI y WhatsApp Inteligente Contextual.
+ * Corredora de Seguros Titular
+ * "Yo gestiono por ti."
+ *
+ * Motor interactivo: Bilingüe (ES/EN), 4 Líneas de Servicio Oficiales,
+ * Cotizador Express RCI Mercosur / SOAPEX, WhatsApp Dinámico y Registro de Leads.
  */
 
-// Teléfono oficial de Jeanette (formato internacional sin '+' para wa.me)
-// Configurable según requerimiento de Jeanette
+// Teléfono oficial de Jeanette (formato internacional para wa.me)
 const JEANETTE_PHONE = "56999999999"; 
 
-// Textos bilingües
+// Textos bilingües oficiales
 const translations = {
   es: {
-    brand_sub: "Corredora Oficial de Seguros · CMF",
-    nav_services: "Seguros",
-    nav_travelers: "Viajeros & SOAPEX",
-    nav_method: "Cómo te ayudo",
+    brand_sub: "Corredora de Seguros Titular · CMF",
+    nav_services: "Nuestros Servicios",
+    nav_rci: "RCI Mercosur & SOAPEX",
+    nav_commitment: "Nuestro Compromiso",
     nav_alliances: "Alianzas B2B",
-    nav_cta: "Asesoría Gratuita",
-    
-    hero_tag: "Corredora Oficial de Seguros · Jeanette Salinas Ponce",
-    hero_title: 'Tu tranquilidad asegurada. <br><span class="highlight">Yo gestiono por ti.</span>',
-    hero_desc: "Asesoría fiduciaria e independiente para personas, familias, empresas y viajeros de todo el mundo. Evaluamos tus coberturas, encontramos la mejor opción del mercado y te defendemos en caso de siniestro.",
-    hero_btn_primary: "Solicitar Asesoría Gratuita",
-    hero_btn_soapex: "Cotizar SOAPEX / RCI",
-    hero_trust_1: "Registro CMF Oficial",
-    hero_trust_2: "100% Independiente",
-    hero_trust_3: "Sin costo extra para ti",
+    nav_cta: "Solicitar Asesoría",
+
+    hero_tag: "Jeanette Salinas Ponce · Corredora de Seguros Titular",
+    hero_title: 'Asesoría Profesional en Seguros <br><span class="highlight">y Protección Patrimonial</span>',
+    hero_slogan: "Yo gestiono por ti.",
+    hero_desc: "En JSP Seguros entrego asesoría profesional y personalizada, orientada a proteger los bienes, el patrimonio y el bienestar de personas, familias y empresas. Identifico las necesidades de cada cliente y busco alternativas de protección adecuadas, acompañándolo desde la cotización y contratación hasta la renovación y gestión de sus seguros.",
+    hero_btn_generales: "Cotizar Seguros Generales",
+    hero_btn_rci: "Cotizar RCI Mercosur & SOAPEX",
+    hero_trust_1: "Corredora de Seguros Titular CMF",
+    hero_trust_2: "Atención Nacional e Internacional",
+    hero_trust_3: "Gestión Integral: Cotización a Siniestro",
 
     profile_name: "Jeanette Salinas Ponce",
-    profile_role: "Corredora Oficial de Seguros",
+    profile_role: "Corredora de Seguros",
     profile_badge: "Registro CMF Verificado",
     stat_1_num: "100%",
-    stat_1_label: "Asesoría Fiduciaria e Imparcial",
+    stat_1_label: "Asesoría Profesional y Personalizada",
     stat_2_num: "+15",
-    stat_2_label: "Aseguradoras Reguladas",
-    profile_box_text: "¿Tienes dudas sobre una póliza o tuviste un siniestro?",
-    profile_box_btn: "Hablar con Jeanette",
+    stat_2_label: "Aseguradoras Reguladas en Chile",
+    profile_box_text: "¿Tienes dudas sobre una póliza o necesitas gestionar un seguro?",
+    profile_box_btn: "Conversar con Jeanette",
 
-    quote_tagline: "Filosofía Fiduciaria",
-    quote_text: "«¿Qué tanto estoy creciendo, pero qué tanto estoy contribuyendo?»",
-    quote_author: "— Jeanette Salinas Ponce, Corredora de Seguros",
+    banner_intl_badge: "Atención Especializada para Viajeros y Extranjeros",
+    banner_intl_title: "Seguros RCI Mercosur & SOAPEX para circular por Sudamérica",
+    banner_intl_desc: "Atención especializada para conductores y vehículos extranjeros que ingresan a Chile o circulan por Argentina, Brasil, Uruguay, Paraguay y Bolivia. Emisión digital ágil desde Chile o el extranjero.",
+    banner_intl_btn: "Cotizador Express RCI & SOAPEX",
 
-    services_tag: "Catálogo Modular",
-    services_title: "Protección a tu medida, sin letra chica",
-    services_desc: "Selecciona tu perfil para conocer las coberturas principales. Si necesitas un ramo específico, yo lo gestiono de inmediato.",
-    tab_personal: "Personas y Familias",
-    tab_business: "Empresas y Pymes",
-    tab_travelers: "Viajeros & Tránsito Internacional",
+    services_tag: "Nuestros Servicios",
+    services_title: "Soluciones de protección profesional a tu medida",
+    services_desc: "Conoce nuestras 4 líneas principales de seguros. Te acompaño en la selección, contratación, renovación y ante cualquier siniestro.",
+    tab_generales: "1. Seguros Generales",
+    tab_rci: "2. RCI Mercosur y SOAPEX",
+    tab_vida: "3. Vida y Personas",
+    tab_colectivos: "4. Seguros Colectivos",
 
-    wizard_badge: "Puerta de Entrada Internacional",
-    wizard_title: "Ingreso a Chile & Mercosur",
-    wizard_desc: "Emisión ágil del seguro obligatorio SOAPEX para ingresar a Chile y cobertura RCI para transitar en países del Mercosur.",
-    wizard_b1: "Obligatorio por ley para aduanas y pasos fronterizos.",
-    wizard_b2: "Válido para autos, camionetas, motos y casas rodantes.",
-    wizard_b3: "Emisión digital inmediata enviada a tu correo y WhatsApp.",
-    
-    wizard_form_title: "Cotizador Express SOAPEX & RCI",
+    wizard_badge: "Atención a Clientes Internacionales",
+    wizard_title: "Emisión Express RCI Mercosur & SOAPEX",
+    wizard_desc: "Gestión ágil para viajeros, transportistas y conductores particulares que cruzan fronteras en Sudamérica.",
+    wizard_b1: "Obligatorio por ley para aduanas, pasos fronterizos y controles policiales.",
+    wizard_b2: "Válido para vehículos particulares, camionetas, motos, transporte y casas rodantes.",
+    wizard_b3: "Emisión digital inmediata enviada directamente a tu correo y WhatsApp.",
+
+    wizard_form_title: "Solicitud Express RCI & SOAPEX",
     wizard_label_type: "¿Qué seguro necesitas?",
-    wizard_opt_soapex: "SOAPEX (Vehículo extranjero entrando a Chile)",
-    wizard_opt_rci: "RCI Mercosur (Vehículo chileno saliendo a Argentina/Brasil)",
-    wizard_opt_travel: "Asistencia Médica en Viaje Internacional",
+    wizard_opt_rci: "RCI Mercosur (Circulación en Sudamérica: Arg, Bra, Uru, Par, Bol)",
+    wizard_opt_soapex: "SOAPEX (Vehículo extranjero ingresando a Chile)",
+    wizard_opt_travel: "Asistencia Médica y Seguro de Viaje",
     wizard_label_vehicle: "Tipo de Vehículo",
     wizard_label_country: "País de Origen / Matrícula",
-    wizard_label_duration: "Tiempo de Estadía / Cobertura",
+    wizard_label_duration: "Vigencia / Tiempo de Cobertura",
     wizard_btn: "Solicitar Emisión con Jeanette",
 
-    method_tag: "Metodología Fiduciaria",
-    method_title: "Cómo te acompaño en 4 pasos",
-    method_desc: "Un proceso transparente, personal y humano frente a la burocracia bancaria.",
-    step1_title: "01. Escucho tus necesidades",
-    step1_desc: "Conversamos brevemente para entender qué te preocupa proteger, tu presupuesto y necesidades reales.",
-    step2_title: "02. Comparo el mercado",
-    step2_desc: "Busco de forma 100% imparcial entre las más de 15 aseguradoras reguladas por la CMF en Chile.",
-    step3_title: "03. Te explico la letra chica",
-    step3_desc: "En lenguaje simple, sin tecnicismos opacos: sabrás exactamente qué te cubre y qué no ante cualquier evento.",
-    step4_title: "04. Yo gestiono por ti",
-    step4_desc: "Te acompaño durante la vigencia de la póliza y defiendo tus derechos técnicos ante la aseguradora en caso de siniestro.",
+    commitment_tag: "Nuestro Compromiso",
+    commitment_title: "Cercanía, responsabilidad y protección oportuna",
+    commitment_text: "«Entregar una asesoría responsable, oportuna y personalizada, identificando las necesidades de cada cliente y ofreciendo soluciones que contribuyan a proteger sus bienes, patrimonio y bienestar. Atención cercana y profesional para clientes nacionales e internacionales.»",
+    commitment_author: "— Jeanette Salinas Ponce, Corredora de Seguros · JSP Seguros («Yo gestiono por ti»)",
+    quote_phrase: "«¿Qué tanto estoy creciendo, pero qué tanto estoy contribuyendo?»",
 
-    alliances_tag: "Canal B2B",
-    alliances_title: "Alianzas Comerciales & Convenios",
-    alliances_desc: "Generamos alianzas de valor con agencias de viaje, tour operadores, empresas de transporte y rent-a-car. Protege a tus clientes y pasajeros con condiciones preferentes y respaldo profesional continuo.",
+    method_tag: "Metodología de Trabajo",
+    method_title: "Cómo te acompaño paso a paso",
+    method_desc: "Un proceso transparente, personal y profesional desde el primer contacto.",
+    step1_title: "01. Identifico tus necesidades",
+    step1_desc: "Evaluamos qué bienes, personas o actividades necesitas proteger para diseñar la cobertura precisa.",
+    step2_title: "02. Comparo alternativas",
+    step2_desc: "Busco las mejores opciones entre las principales aseguradoras reguladas por la CMF en Chile.",
+    step3_title: "03. Soluciones claras",
+    step3_desc: "Te explico cada cláusula y cobertura en lenguaje directo y transparente, sin letra chica.",
+    step4_title: "04. Yo gestiono por ti",
+    step4_desc: "Te acompaño durante toda la vigencia, en renovaciones y con defensa técnica directa ante un siniestro.",
+
+    alliances_tag: "Canal B2B & Convenios",
+    alliances_title: "Alianzas Estratégicas Comerciales",
+    alliances_desc: "Convenios para agencias de viaje, tour operadores, empresas de transporte y rent-a-car. Facilita seguros de viaje, RCI y SOAPEX a tus pasajeros con atención preferente y respaldo continuo.",
     alliances_btn: "Coordinar Reunión de Alianza",
 
-    carriers_title: "Operamos de forma independiente con las principales aseguradoras reguladas por la CMF",
-    
-    footer_desc: "Asesoría fiduciaria independiente en seguros generales, vida, salud y tránsito internacional. Comprometida con proteger tu patrimonio y acompañarte cuando más lo necesitas.",
-    footer_rights: "© 2026 JSP Seguros · Jeanette Salinas Ponce. Todos los derechos reservados."
+    carriers_title: "Trabajamos con las principales aseguradoras reguladas por la CMF en Chile",
+
+    footer_desc: "En JSP Seguros entrego asesoría profesional y personalizada, orientada a proteger los bienes, el patrimonio y el bienestar de personas, familias y empresas. Atención para clientes nacionales e internacionales.",
+    footer_rights: "© 2026 JSP Seguros · Jeanette Salinas Ponce (Corredora de Seguros Titular). Todos los derechos reservados."
   },
 
   en: {
-    brand_sub: "Official Licensed Insurance Broker · CMF Chile",
-    nav_services: "Insurances",
-    nav_travelers: "Travelers & SOAPEX",
-    nav_method: "Our Method",
-    nav_alliances: "B2B Partnerships",
-    nav_cta: "Free Consultation",
-    
-    hero_tag: "Official Licensed Broker · Jeanette Salinas Ponce",
-    hero_title: 'Your peace of mind secured. <br><span class="highlight">I handle everything for you.</span>',
-    hero_desc: "Fiduciary and independent insurance brokerage for individuals, families, businesses, and international travelers entering Chile. We audit your coverage, select the best market policy, and advocate for you in any claim.",
-    hero_btn_primary: "Request Free Consultation",
-    hero_btn_soapex: "Quote SOAPEX / RCI",
-    hero_trust_1: "Official CMF License",
-    hero_trust_2: "100% Independent",
-    hero_trust_3: "No extra fee for you",
+    brand_sub: "Licensed Insurance Broker · CMF Chile",
+    nav_services: "Our Services",
+    nav_rci: "RCI Mercosur & SOAPEX",
+    nav_commitment: "Our Commitment",
+    nav_alliances: "B2B Alliances",
+    nav_cta: "Request Advisory",
+
+    hero_tag: "Jeanette Salinas Ponce · Licensed Insurance Broker",
+    hero_title: 'Professional Insurance Advisory <br><span class="highlight">& Asset Protection</span>',
+    hero_slogan: "I manage everything for you.",
+    hero_desc: "At JSP Seguros I provide professional, personalized advisory aimed at protecting the assets, property, and well-being of individuals, families, and businesses. I assess each client's specific needs and find suitable protection alternatives, supporting them from initial quotation and contracting through renewals and claims management.",
+    hero_btn_generales: "Quote General Insurance",
+    hero_btn_rci: "Quote RCI Mercosur & SOAPEX",
+    hero_trust_1: "Licensed Broker CMF Chile",
+    hero_trust_2: "Domestic & International Clients",
+    hero_trust_3: "Full Support: Quote to Claims",
 
     profile_name: "Jeanette Salinas Ponce",
-    profile_role: "Official Insurance Broker",
+    profile_role: "Licensed Insurance Broker",
     profile_badge: "Verified CMF License",
     stat_1_num: "100%",
-    stat_1_label: "Fiduciary & Impartial Advice",
+    stat_1_label: "Professional & Personal Advisory",
     stat_2_num: "+15",
-    stat_2_label: "Regulated Insurers",
-    profile_box_text: "Need policy advice or dealing with a recent claim?",
-    profile_box_btn: "Chat with Jeanette",
+    stat_2_label: "Regulated Insurers in Chile",
+    profile_box_text: "Have questions about a policy or need help with a claim?",
+    profile_box_btn: "Speak with Jeanette",
 
-    quote_tagline: "Fiduciary Philosophy",
-    quote_text: "«How much am I growing, but more importantly, how much am I truly contributing?»",
-    quote_author: "— Jeanette Salinas Ponce, Licensed Insurance Broker",
+    banner_intl_badge: "Specialized Service for Travelers & Foreign Drivers",
+    banner_intl_title: "RCI Mercosur & SOAPEX Insurance for South American Transit",
+    banner_intl_desc: "Specialized service for foreign drivers entering Chile or traveling through Argentina, Brazil, Uruguay, Paraguay, and Bolivia. Fast digital issuance from Chile or abroad.",
+    banner_intl_btn: "Express RCI & SOAPEX Quoter",
 
-    services_tag: "Modular Catalog",
-    services_title: "Tailored protection with zero fine print",
-    services_desc: "Select your profile to discover core policies. If you need a specialized policy, I will manage it immediately.",
-    tab_personal: "Individuals & Families",
-    tab_business: "Businesses & Companies",
-    tab_travelers: "Travelers & International Transit",
+    services_tag: "Our Services",
+    services_title: "Professional protection tailored to your needs",
+    services_desc: "Explore our 4 core insurance lines. I support you through policy selection, underwriting, renewals, and claims.",
+    tab_generales: "1. General Insurance",
+    tab_rci: "2. RCI Mercosur & SOAPEX",
+    tab_vida: "3. Life & Personal Coverage",
+    tab_colectivos: "4. Group Insurance",
 
-    wizard_badge: "International Gateway",
-    wizard_title: "Entry to Chile & Mercosur Transit",
-    wizard_desc: "Fast digital issuance of mandatory SOAPEX insurance for foreign vehicles entering Chile and RCI coverage for Mercosur cross-border travel.",
-    wizard_b1: "Mandatory by law for customs, borders and police control.",
-    wizard_b2: "Valid for cars, pickups, motorcycles, campervans and RVs.",
-    wizard_b3: "Instant digital policy delivered directly to your email and WhatsApp.",
-    
-    wizard_form_title: "Express SOAPEX & RCI Quoter",
-    wizard_label_type: "Select Insurance Type",
+    wizard_badge: "International Client Service",
+    wizard_title: "Express RCI Mercosur & SOAPEX Issuance",
+    wizard_desc: "Fast digital processing for travelers, freight carriers, and private drivers crossing borders in South America.",
+    wizard_b1: "Mandatory by law for customs, border crossings, and highway controls.",
+    wizard_b2: "Valid for passenger cars, pickups, motorcycles, transport, and campervans / RVs.",
+    wizard_b3: "Instant digital policy delivered straight to your email and WhatsApp.",
+
+    wizard_form_title: "Express RCI & SOAPEX Request",
+    wizard_label_type: "Select Insurance Coverage",
+    wizard_opt_rci: "RCI Mercosur (South America transit: Arg, Bra, Uru, Par, Bol)",
     wizard_opt_soapex: "SOAPEX (Foreign vehicle entering Chile)",
-    wizard_opt_rci: "RCI Mercosur (Chilean vehicle traveling to Argentina/Brazil)",
-    wizard_opt_travel: "Worldwide Travel & Medical Assistance",
+    wizard_opt_travel: "Travel Medical Assistance",
     wizard_label_vehicle: "Vehicle Category",
     wizard_label_country: "Country of Registration / License Plate",
-    wizard_label_duration: "Duration of Stay / Coverage Period",
-    wizard_btn: "Request Instant Issuance with Jeanette",
+    wizard_label_duration: "Coverage Period / Duration",
+    wizard_btn: "Request Issuance with Jeanette",
 
-    method_tag: "Fiduciary Methodology",
-    method_title: "How I support you in 4 transparent steps",
-    method_desc: "A personalized, human and dedicated process unlike automated banking bureaucracy.",
-    step1_title: "01. I listen to your exact needs",
-    step1_desc: "We hold a brief talk to understand what you want to protect, your budget, and specific risk profile.",
-    step2_title: "02. I compare the entire market",
-    step2_desc: "Completely impartial audit across more than 15 CMF-regulated insurance companies in Chile.",
-    step3_title: "03. I explain the fine print",
-    step3_desc: "Clear language, no opaque jargon: you will understand exact coverages, deductibles and exclusions.",
+    commitment_tag: "Our Commitment",
+    commitment_title: "Closeness, responsibility, and timely protection",
+    commitment_text: "«To deliver responsible, timely, and personalized advice, identifying the needs of each client and offering solutions that help protect their property, assets, and well-being. Close and professional service for national and international clients.»",
+    commitment_author: "— Jeanette Salinas Ponce, Licensed Insurance Broker · JSP Seguros («I manage everything for you»)",
+    quote_phrase: "«How much am I growing, but more importantly, how much am I truly contributing?»",
+
+    method_tag: "Our Methodology",
+    method_title: "How I support you step by step",
+    method_desc: "A transparent, personal, and professional process from day one.",
+    step1_title: "01. I assess your needs",
+    step1_desc: "We identify what assets, people, or business operations require protection to craft the exact coverage.",
+    step2_title: "02. I compare market options",
+    step2_desc: "I evaluate top policies across leading CMF-regulated insurance companies in Chile.",
+    step3_title: "03. Clear solutions",
+    step3_desc: "I explain terms, limits, and conditions in plain language without deceptive fine print.",
     step4_title: "04. I manage everything for you",
-    step4_desc: "Ongoing policy monitoring and technical representation defending your claim before the insurer.",
+    step4_desc: "Ongoing support through policy life, renewal audits, and direct technical advocacy in any claim.",
 
-    alliances_tag: "B2B Channel",
-    alliances_title: "Commercial Partnerships & Tour Operators",
-    alliances_desc: "We build high-trust agreements with travel agencies, tour operators, transportation companies, and car rental firms. Protect your travelers with preferred conditions and dedicated assistance.",
+    alliances_tag: "B2B Channels & Partnerships",
+    alliances_title: "Strategic Commercial Alliances",
+    alliances_desc: "Agreements for travel agencies, tour operators, transportation companies, and car rental firms. Provide RCI, SOAPEX, and travel insurance with priority response.",
     alliances_btn: "Schedule a Partnership Call",
 
-    carriers_title: "We work independently with leading CMF-regulated insurance companies",
-    
-    footer_desc: "Independent fiduciary insurance advisory in general risks, life, health, and cross-border transit. Committed to protecting your assets and standing by your side when you need it most.",
-    footer_rights: "© 2026 JSP Seguros · Jeanette Salinas Ponce. All rights reserved."
+    carriers_title: "We work with top CMF-regulated insurance companies in Chile",
+
+    footer_desc: "At JSP Seguros I provide professional, personalized advisory aimed at protecting the assets, property, and well-being of individuals, families, and businesses. Domestic and international service.",
+    footer_rights: "© 2026 JSP Seguros · Jeanette Salinas Ponce (Licensed Insurance Broker). All rights reserved."
   }
 };
 
 let currentLang = 'es';
-let activeCategory = 'personal';
+let activeCategory = 'generales';
 
 // Inicialización cuando carga el DOM
 document.addEventListener('DOMContentLoaded', () => {
@@ -219,12 +239,11 @@ function setLanguage(lang) {
     }
   });
 
-  // Actualizar tooltips y mensajes
   updateWhatsAppTooltip();
 }
 
 /* ==========================================================================
-   2. SELECTOR MODULAR DE SERVICIOS (FEATHER TABS)
+   2. SELECTOR MODULAR DE SERVICIOS (4 LÍNEAS OFICIALES)
    ========================================================================== */
 function initTabs() {
   const tabButtons = document.querySelectorAll('.tab-btn');
@@ -251,7 +270,7 @@ function initTabs() {
 }
 
 /* ==========================================================================
-   3. COTIZADOR EXPRESS SOAPEX & RCI (INBOUND GATEWAY)
+   3. COTIZADOR EXPRESS RCI MERCOSUR & SOAPEX (INTERNACIONAL)
    ========================================================================== */
 function initWizard() {
   const form = document.getElementById('express-wizard-form');
@@ -264,16 +283,27 @@ function initWizard() {
     const countryInput = document.getElementById('wizard-country');
     const durationSelect = document.getElementById('wizard-duration');
 
-    const type = typeSelect ? typeSelect.value : 'SOAPEX';
+    const type = typeSelect ? typeSelect.value : 'RCI Mercosur';
     const vehicle = vehicleSelect ? vehicleSelect.value : 'Automóvil';
     const country = countryInput && countryInput.value.trim() ? countryInput.value.trim() : 'Extranjero';
     const duration = durationSelect ? durationSelect.value : '30 días';
 
+    // Registro automático en Firebase si está disponible
+    if (typeof window.saveWebLeadToFirebase === 'function') {
+      window.saveWebLeadToFirebase({
+        tipoSeguro: type,
+        vehiculo: vehicle,
+        paisMatricula: country,
+        duracion: duration,
+        origen: 'cotizador_express_rci_soapex'
+      });
+    }
+
     let msg = "";
     if (currentLang === 'es') {
-      msg = `Hola Jeanette! Quisiera emitir o cotizar de forma express: ${type}. Vehículo: ${vehicle}, Matrícula/País: ${country}, Tiempo estimado: ${duration}. ¿Podrías indicarme los pasos?`;
+      msg = `Hola Jeanette! Necesito cotizar/emitir el seguro: ${type}. Tipo de vehículo: ${vehicle}, Matrícula/País: ${country}, Duración: ${duration}. ¿Podrías indicarme los pasos y costos?`;
     } else {
-      msg = `Hello Jeanette! I would like to get a fast quote / issuance for: ${type}. Vehicle: ${vehicle}, Plate/Country: ${country}, Coverage period: ${duration}. Could you assist me with the next steps?`;
+      msg = `Hello Jeanette! I would like to quote/issue the insurance: ${type}. Vehicle: ${vehicle}, Plate/Country: ${country}, Duration: ${duration}. Could you guide me with the steps and quote?`;
     }
 
     sendWhatsAppMessage(msg);
@@ -285,40 +315,51 @@ function initWizard() {
    ========================================================================== */
 function initWhatsApp() {
   const floatingBtn = document.getElementById('whatsapp-floating-btn');
-  if (!floatingBtn) return;
+  const heroBtn = document.getElementById('hero-wa-btn');
+  const footerLink = document.getElementById('footer-wa-link');
 
-  floatingBtn.addEventListener('click', (e) => {
+  const handleWhatsAppClick = (e) => {
     e.preventDefault();
     let msg = "";
 
-    if (activeCategory === 'travelers') {
+    if (activeCategory === 'rci') {
       msg = currentLang === 'es'
-        ? "Hola Jeanette, requiero cotizar o emitir un seguro de viaje / SOAPEX para ingresar a Chile con mi vehículo."
-        : "Hello Jeanette, I need a quote or issuance for SOAPEX / Travel insurance to enter Chile with my vehicle.";
-    } else if (activeCategory === 'business') {
+        ? "Hola Jeanette, requiero cotizar o emitir un seguro RCI Mercosur o SOAPEX para circular con mi vehículo."
+        : "Hello Jeanette, I need a quote or issuance for RCI Mercosur or SOAPEX insurance for cross-border transit.";
+    } else if (activeCategory === 'generales') {
       msg = currentLang === 'es'
-        ? "Hola Jeanette, me gustaría recibir asesoría para seguros de empresas, garantías y colectivos de salud."
-        : "Hello Jeanette, I would like advice regarding corporate insurance, surety bonds, and employee group health.";
+        ? "Hola Jeanette, me gustaría recibir asesoría para Seguros Generales (vehículos, hogar, empresas o transporte)."
+        : "Hello Jeanette, I would like advisory regarding General Insurance (vehicles, home, commercial, cargo).";
+    } else if (activeCategory === 'colectivos') {
+      msg = currentLang === 'es'
+        ? "Hola Jeanette, me gustaría consultar por Seguros Colectivos para empresas o grupos familiares."
+        : "Hello Jeanette, I would like to inquire about Group Insurance for companies or families.";
     } else {
       msg = currentLang === 'es'
-        ? "Hola Jeanette, me gustaría recibir asesoría fiduciaria para seguros personales y de familia."
-        : "Hello Jeanette, I would like personal advisory regarding family and individual insurance coverage.";
+        ? "Hola Jeanette, me gustaría recibir asesoría sobre Seguros de Vida y Salud para mi familia."
+        : "Hello Jeanette, I would like advisory regarding Life and Health coverage for my family.";
     }
 
     sendWhatsAppMessage(msg);
-  });
+  };
+
+  if (floatingBtn) floatingBtn.addEventListener('click', handleWhatsAppClick);
+  if (heroBtn) heroBtn.addEventListener('click', handleWhatsAppClick);
+  if (footerLink) footerLink.addEventListener('click', handleWhatsAppClick);
 }
 
 function updateWhatsAppTooltip() {
   const tooltip = document.getElementById('whatsapp-tooltip-text');
   if (!tooltip) return;
 
-  if (activeCategory === 'travelers') {
-    tooltip.textContent = currentLang === 'es' ? "Consultar por SOAPEX & Viajes" : "Chat about SOAPEX & Travel";
-  } else if (activeCategory === 'business') {
-    tooltip.textContent = currentLang === 'es' ? "Asesoría para Empresas" : "Business Advisory";
+  if (activeCategory === 'rci') {
+    tooltip.textContent = currentLang === 'es' ? "Consultar RCI & SOAPEX" : "Chat RCI & SOAPEX";
+  } else if (activeCategory === 'generales') {
+    tooltip.textContent = currentLang === 'es' ? "Seguros Generales" : "General Insurance";
+  } else if (activeCategory === 'colectivos') {
+    tooltip.textContent = currentLang === 'es' ? "Seguros Colectivos" : "Group Insurance";
   } else {
-    tooltip.textContent = currentLang === 'es' ? "Asesoría con Jeanette" : "Chat with Jeanette";
+    tooltip.textContent = currentLang === 'es' ? "Vida y Personas" : "Life & Personal";
   }
 }
 
@@ -328,7 +369,7 @@ function sendWhatsAppMessage(text) {
 }
 
 /* ==========================================================================
-   5. MODAL DE CONTACTO & ALIANZAS
+   5. MODAL DE CONTACTO & ASESORÍA
    ========================================================================== */
 function initModals() {
   const backdrop = document.getElementById('contact-modal');
@@ -350,7 +391,7 @@ function initModals() {
         if (subject.toLowerCase().includes('alianza') || subject.toLowerCase().includes('partner')) {
           modalTitle.textContent = currentLang === 'es' ? "Solicitud de Alianza Comercial B2B" : "B2B Partnership Inquiry";
         } else {
-          modalTitle.textContent = currentLang === 'es' ? `Asesoría en ${subject}` : `Advisory for ${subject}`;
+          modalTitle.textContent = currentLang === 'es' ? `Asesoría: ${subject}` : `Advisory: ${subject}`;
         }
       }
 
@@ -397,11 +438,11 @@ function initModals() {
       backdrop.classList.remove('active');
       modalForm.reset();
 
-      // Opción de enviar también a WhatsApp para atención inmediata
+      // Enviar a WhatsApp para atención inmediata
       setTimeout(() => {
         const confirmMsg = currentLang === 'es'
-          ? `Hola Jeanette! Acabo de enviar una solicitud en tu web. Soy ${name}. Asunto: ${subject}. Teléfono: ${phone}. Email: ${email}. Comentario: ${notes}`
-          : `Hello Jeanette! I just submitted an inquiry on your site. Name: ${name}. Topic: ${subject}. Phone: ${phone}. Notes: ${notes}`;
+          ? `Hola Jeanette! Acabo de enviar una solicitud en tu web. Mi nombre es ${name}. Asunto: ${subject}. Teléfono: ${phone}. Email: ${email}. Detalle: ${notes}`
+          : `Hello Jeanette! I just sent a request via your website. Name: ${name}. Topic: ${subject}. Phone: ${phone}. Notes: ${notes}`;
         sendWhatsAppMessage(confirmMsg);
       }, 700);
     });
