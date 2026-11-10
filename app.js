@@ -8,7 +8,7 @@
  */
 
 // Teléfono oficial de Jeanette (formato internacional para wa.me)
-const JEANETTE_PHONE = "56999999999"; 
+const JEANETTE_PHONE = "56996173591"; 
 
 // Textos bilingües oficiales
 const translations = {
