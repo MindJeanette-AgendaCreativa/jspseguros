@@ -408,45 +408,159 @@ function initModals() {
     if (e.target === backdrop) backdrop.classList.remove('active');
   });
 
-  // Envío del formulario
+  // Envío del formulario integrado con Resend Serverless & Firebase
   if (modalForm) {
-    modalForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('form-name').value;
-      const phone = document.getElementById('form-phone').value;
-      const email = document.getElementById('form-email').value;
-      const subject = modalSubject.value;
-      const notes = document.getElementById('form-notes').value;
+    const submitBtn = document.getElementById('form-submit-btn') || modalForm.querySelector('button[type="submit"]');
+    const feedbackEl = document.getElementById('form-feedback');
+    const hpInput = document.getElementById('form-hp');
 
-      // Registro automático en Firebase de Jeanette
-      if (typeof window.saveWebLeadToFirebase === 'function') {
-        window.saveWebLeadToFirebase({
-          nombre: name,
-          telefono: phone,
-          email: email,
-          asunto: subject,
-          notas: notes,
-          origen: 'modal_asesoria'
-        });
+    modalForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nameInput = document.getElementById('form-name');
+      const phoneInput = document.getElementById('form-phone');
+      const emailInput = document.getElementById('form-email');
+      const notesInput = document.getElementById('form-notes');
+
+      const name = nameInput ? nameInput.value.trim() : '';
+      const phone = phoneInput ? phoneInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const subject = (modalSubject && modalSubject.value) ? modalSubject.value : 'General';
+      const notes = notesInput ? notesInput.value.trim() : '';
+      const hp = hpInput ? hpInput.value.trim() : '';
+
+      // Validación en cliente
+      if (!name || !phone || !email) {
+        if (feedbackEl) {
+          feedbackEl.className = 'feedback-alert-error';
+          feedbackEl.innerHTML = currentLang === 'es'
+            ? 'Por favor completa todos los campos obligatorios (*).'
+            : 'Please complete all required fields (*).';
+          feedbackEl.style.display = 'block';
+        }
+        return;
       }
 
-      // Notificación al usuario
-      showToast(currentLang === 'es' 
-        ? "¡Solicitud recibida! Jeanette se comunicará contigo a la brevedad." 
-        : "Inquiry received! Jeanette will reach out to you shortly.");
-      
-      backdrop.classList.remove('active');
-      modalForm.reset();
+      // Estado de envío: prevenir doble clic y mostrar indicador de carga
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <span style="display:inline-block; width:16px; height:16px; border:2px solid #ffffff; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite; vertical-align:middle; margin-right:8px;"></span>
+          ${currentLang === 'es' ? 'Enviando solicitud...' : 'Sending request...'}
+        `;
+      }
 
-      // Enviar a WhatsApp para atención inmediata
-      setTimeout(() => {
-        const confirmMsg = currentLang === 'es'
-          ? `Hola Jeanette! Acabo de enviar una solicitud en tu web. Mi nombre es ${name}. Asunto: ${subject}. Teléfono: ${phone}. Email: ${email}. Detalle: ${notes}`
-          : `Hello Jeanette! I just sent a request via your website. Name: ${name}. Topic: ${subject}. Phone: ${phone}. Notes: ${notes}`;
-        sendWhatsAppMessage(confirmMsg);
-      }, 700);
+      if (feedbackEl) {
+        feedbackEl.style.display = 'none';
+        feedbackEl.innerHTML = '';
+      }
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            phone,
+            email,
+            subject,
+            notes,
+            _hp: hp
+          })
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (response.ok && result.success) {
+          // Éxito confirmado por el servidor
+          if (feedbackEl) {
+            feedbackEl.className = 'feedback-alert-success';
+            feedbackEl.innerHTML = currentLang === 'es'
+              ? `<strong>¡Solicitud enviada con éxito!</strong><br>Hemos enviado un correo de confirmación a <strong>${escapeHtml(email)}</strong>. Jeanette revisará tu solicitud y se contactará a la brevedad.`
+              : `<strong>Request sent successfully!</strong><br>A confirmation email has been sent to <strong>${escapeHtml(email)}</strong>. Jeanette will review your details and reach out shortly.`;
+            feedbackEl.style.display = 'block';
+          }
+
+          // Mantener respaldo en Firebase de JSP Seguros
+          if (typeof window.saveWebLeadToFirebase === 'function') {
+            try {
+              window.saveWebLeadToFirebase({
+                nombre: name,
+                telefono: phone,
+                email: email,
+                asunto: subject,
+                notas: notes,
+                origen: 'modal_asesoria_resend',
+                resendAdminId: result.adminEmail?.id || null,
+                resendClientId: result.clientEmail?.id || null
+              });
+            } catch (fbErr) {
+              console.warn('[Firebase] Registro no crítico:', fbErr);
+            }
+          }
+
+          showToast(currentLang === 'es' 
+            ? "¡Solicitud enviada! Revisa tu correo de confirmación." 
+            : "Inquiry sent! Check your confirmation email.");
+
+          modalForm.reset();
+
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+          }
+
+          // Cierre suave después de 4.5 segundos permitiendo leer el mensaje
+          setTimeout(() => {
+            if (backdrop.classList.contains('active')) {
+              backdrop.classList.remove('active');
+              if (feedbackEl) feedbackEl.style.display = 'none';
+            }
+          }, 4500);
+
+        } else {
+          // Fallo reportado por el servidor
+          const errorMsg = result.error || (result.errors && result.errors.join(' | ')) || 'No se pudo enviar la solicitud. Por favor intenta nuevamente.';
+          if (feedbackEl) {
+            feedbackEl.className = 'feedback-alert-error';
+            feedbackEl.innerHTML = `<strong>Error al enviar:</strong> ${escapeHtml(errorMsg)}<br><small>Si el problema persiste, puedes escribirnos directamente por WhatsApp.</small>`;
+            feedbackEl.style.display = 'block';
+          }
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+          }
+        }
+
+      } catch (networkErr) {
+        console.error('[Error de red al enviar formulario]:', networkErr);
+        if (feedbackEl) {
+          feedbackEl.className = 'feedback-alert-error';
+          feedbackEl.innerHTML = currentLang === 'es'
+            ? '<strong>Error de conexión:</strong> No pudimos conectar con el servidor. Revisa tu conexión a internet o contáctanos por WhatsApp.'
+            : '<strong>Connection error:</strong> Could not connect to server. Check your connection or contact us via WhatsApp.';
+          feedbackEl.style.display = 'block';
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+        }
+      }
     });
   }
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
 
 /* ==========================================================================
