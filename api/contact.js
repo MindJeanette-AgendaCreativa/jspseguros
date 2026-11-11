@@ -118,7 +118,7 @@ module.exports = async function handler(req, res) {
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #FAF8F5; margin: 0; padding: 24px; color: #152238;">
   <div style="max-width: 600px; margin: 0 auto; background: #FFFFFF; border-radius: 14px; border: 1px solid #EAE6DF; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.05);">
     
-    <div style="background: linear-gradient(135deg, #006637 0%, #001651 100%); padding: 28px 32px; color: #FFFFFF;">
+    <div style="background: linear-gradient(135deg, #059669 0%, #001651 100%); padding: 28px 32px; color: #FFFFFF;">
       <h1 style="margin: 0 0 6px; font-size: 22px; font-weight: 800; letter-spacing: -0.02em;">JSP Seguros</h1>
       <p style="margin: 0; font-size: 13px; opacity: 0.9; text-transform: uppercase; letter-spacing: 0.05em;">Nueva Consulta Web Recibida</p>
     </div>
@@ -135,11 +135,11 @@ module.exports = async function handler(req, res) {
         </tr>
         <tr style="border-bottom: 1px solid #F0ECE4;">
           <td style="padding: 10px 0; font-weight: 700; color: #001651;">Correo Electrónico:</td>
-          <td style="padding: 10px 0;"><a href="mailto:${cleanEmail}" style="color: #006637; text-decoration: underline;">${cleanEmail}</a></td>
+          <td style="padding: 10px 0;"><a href="mailto:${cleanEmail}" style="color: #059669; text-decoration: underline;">${cleanEmail}</a></td>
         </tr>
         <tr style="border-bottom: 1px solid #F0ECE4;">
           <td style="padding: 10px 0; font-weight: 700; color: #001651;">Teléfono / WhatsApp:</td>
-          <td style="padding: 10px 0;"><a href="tel:${cleanPhone.replace(/\s+/g, '')}" style="color: #006637; text-decoration: underline;">${cleanPhone}</a></td>
+          <td style="padding: 10px 0;"><a href="tel:${cleanPhone.replace(/\s+/g, '')}" style="color: #059669; text-decoration: underline;">${cleanPhone}</a></td>
         </tr>
         <tr style="border-bottom: 1px solid #F0ECE4;">
           <td style="padding: 10px 0; font-weight: 700; color: #001651;">Seguro / Asunto:</td>
@@ -151,8 +151,8 @@ module.exports = async function handler(req, res) {
         </tr>
       </table>
 
-      <div style="background-color: #FAF8F5; border-left: 4px solid #006637; padding: 16px; border-radius: 6px; margin-bottom: 24px;">
-        <strong style="display: block; margin-bottom: 6px; font-size: 13px; text-transform: uppercase; color: #006637; letter-spacing: 0.05em;">Detalle del Requerimiento:</strong>
+      <div style="background-color: #FAF8F5; border-left: 4px solid #059669; padding: 16px; border-radius: 6px; margin-bottom: 24px;">
+        <strong style="display: block; margin-bottom: 6px; font-size: 13px; text-transform: uppercase; color: #059669; letter-spacing: 0.05em;">Detalle del Requerimiento:</strong>
         <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #2D3748; white-space: pre-wrap;">${cleanNotes || '(Sin comentarios adicionales especificados)'}</p>
       </div>
 
@@ -180,7 +180,7 @@ module.exports = async function handler(req, res) {
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #FAF8F5; margin: 0; padding: 24px; color: #152238;">
   <div style="max-width: 600px; margin: 0 auto; background: #FFFFFF; border-radius: 14px; border: 1px solid #EAE6DF; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.05);">
     
-    <div style="background: linear-gradient(135deg, #001651 0%, #006637 100%); padding: 32px; color: #FFFFFF; text-align: center;">
+    <div style="background: linear-gradient(135deg, #001651 0%, #059669 100%); padding: 32px; color: #FFFFFF; text-align: center;">
       <h1 style="margin: 0 0 6px; font-size: 24px; font-weight: 800; letter-spacing: -0.02em;">JSP Seguros</h1>
       <p style="margin: 0; font-size: 14px; color: #D1FAE5; font-style: italic;">Yo gestiono por ti</p>
     </div>
@@ -233,7 +233,7 @@ module.exports = async function handler(req, res) {
       <div style="border-top: 1px solid #EAE6DF; padding-top: 20px; font-size: 13px; color: #6B7280; line-height: 1.6;">
         <strong>Jeanette Salinas Ponce</strong><br>
         Corredora de Seguros Titular · Registro CMF Chile<br>
-        Correo: <a href="mailto:contacto@segurosjsp.com" style="color: #006637;">contacto@segurosjsp.com</a> | Web: <a href="https://www.segurosjsp.com" style="color: #006637;">www.segurosjsp.com</a>
+        Correo: <a href="mailto:contacto@segurosjsp.com" style="color: #059669;">contacto@segurosjsp.com</a> | Web: <a href="https://www.segurosjsp.com" style="color: #059669;">www.segurosjsp.com</a>
       </div>
     </div>
 
