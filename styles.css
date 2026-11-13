@@ -1245,25 +1245,11 @@ a {
   border: 1.5px solid #FFFFFF;
 }
 
-.clara-pill-content {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  line-height: 1.15;
-}
-
-.clara-pill-title {
-  font-size: 0.85rem;
+.clara-pill-text {
+  font-size: 0.86rem;
   font-weight: 700;
   color: var(--primary-navy);
-}
-
-.clara-pill-sub {
-  font-size: 0.67rem;
-  color: var(--emerald-accent);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .btn-wa-direct {
@@ -1290,11 +1276,8 @@ a {
     width: 30px;
     height: 30px;
   }
-  .clara-pill-title {
-    font-size: 0.8rem;
-  }
-  .clara-pill-sub {
-    font-size: 0.64rem;
+  .clara-pill-text {
+    font-size: 0.82rem;
   }
 }
 
