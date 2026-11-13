@@ -21,6 +21,7 @@ const translations = {
     nav_faq: "Preguntas",
     nav_alliances: "Alianzas B2B",
     nav_cta: "Solicitar Asesoría",
+    floating_clara_text: "Pregúntale a Clara",
 
     hero_tag: "Jeanette Salinas Ponce · Corredora de Seguros Titular",
     hero_title: 'Asesoría Profesional en Seguros <br><span class="highlight">y Protección Patrimonial</span>',
@@ -110,6 +111,7 @@ const translations = {
     nav_faq: "FAQ",
     nav_alliances: "B2B Alliances",
     nav_cta: "Request Advisory",
+    floating_clara_text: "Ask Clara",
 
     hero_tag: "Jeanette Salinas Ponce · Licensed Insurance Broker",
     hero_title: 'Professional Insurance Advisory <br><span class="highlight">& Asset Protection</span>',
@@ -319,38 +321,46 @@ function initWizard() {
    4. WHATSAPP INTELIGENTE CONTEXTUAL
    ========================================================================== */
 function initWhatsApp() {
-  const floatingBtn = document.getElementById('whatsapp-floating-btn');
+  const claraBtn = document.getElementById('clara-floating-btn') || document.getElementById('whatsapp-floating-btn');
   const heroBtn = document.getElementById('hero-wa-btn');
   const footerLink = document.getElementById('footer-wa-link');
 
-  const handleWhatsAppClick = (e) => {
+  const handleClaraClick = (e) => {
     e.preventDefault();
     let msg = "";
 
     if (activeCategory === 'rci') {
       msg = currentLang === 'es'
-        ? "Hola Jeanette, requiero cotizar o emitir un seguro RCI Mercosur o SOAPEX para circular con mi vehículo."
-        : "Hello Jeanette, I need a quote or issuance for RCI Mercosur or SOAPEX insurance for cross-border transit.";
+        ? "Hola Clara, me gustaría cotizar o consultar sobre el seguro RCI Mercosur o SOAPEX."
+        : "Hello Clara, I would like to inquire about RCI Mercosur or SOAPEX insurance.";
     } else if (activeCategory === 'generales') {
       msg = currentLang === 'es'
-        ? "Hola Jeanette, me gustaría recibir asesoría para Seguros Generales (vehículos, hogar, empresas o transporte)."
-        : "Hello Jeanette, I would like advisory regarding General Insurance (vehicles, home, commercial, cargo).";
+        ? "Hola Clara! Me gustaría consultar por opciones de Seguros Generales (vehículo, hogar, empresa)."
+        : "Hello Clara! I would like to ask about General Insurance options.";
     } else if (activeCategory === 'colectivos') {
       msg = currentLang === 'es'
-        ? "Hola Jeanette, me gustaría consultar por Seguros Colectivos para empresas o grupos familiares."
-        : "Hello Jeanette, I would like to inquire about Group Insurance for companies or families.";
+        ? "Hola Clara! Me gustaría cotizar Seguros Colectivos para mi empresa o equipo."
+        : "Hello Clara! I would like a quote for Group Insurance.";
     } else {
       msg = currentLang === 'es'
-        ? "Hola Jeanette, me gustaría recibir asesoría sobre Seguros de Vida y Salud para mi familia."
-        : "Hello Jeanette, I would like advisory regarding Life and Health coverage for my family.";
+        ? "Hola Clara! Estoy revisando la web de JSP Seguros y me gustaría hacer una consulta."
+        : "Hello Clara! I am browsing the JSP Seguros website and would like to ask a question.";
     }
 
     sendWhatsAppMessage(msg);
   };
 
-  if (floatingBtn) floatingBtn.addEventListener('click', handleWhatsAppClick);
-  if (heroBtn) heroBtn.addEventListener('click', handleWhatsAppClick);
-  if (footerLink) footerLink.addEventListener('click', handleWhatsAppClick);
+  const handleGeneralWaClick = (e) => {
+    e.preventDefault();
+    const msg = currentLang === 'es'
+      ? "Hola Jeanette! Me gustaría recibir asesoría para contratar o cotizar un seguro."
+      : "Hello Jeanette! I would like professional insurance advisory.";
+    sendWhatsAppMessage(msg);
+  };
+
+  if (claraBtn) claraBtn.addEventListener('click', handleClaraClick);
+  if (heroBtn) heroBtn.addEventListener('click', handleGeneralWaClick);
+  if (footerLink) footerLink.addEventListener('click', handleGeneralWaClick);
 }
 
 function updateWhatsAppTooltip() {
