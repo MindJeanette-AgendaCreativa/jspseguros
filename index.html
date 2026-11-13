@@ -38,7 +38,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Hoja de estilos JSP Seguros -->
-  <link rel="stylesheet" href="styles.css?v=2.0" />
+  <link rel="stylesheet" href="styles.css?v=3.0" />
 </head>
 <body>
 
@@ -58,9 +58,11 @@
       <!-- Enlaces de navegación -->
       <nav aria-label="Navegación principal">
         <ul class="nav-links">
-          <li><a href="#servicios" class="nav-link" data-i18n="nav_services">Nuestros Servicios</a></li>
-          <li><a href="#viajeros" class="nav-link" data-i18n="nav_rci">RCI Mercosur & SOAPEX</a></li>
-          <li><a href="#compromiso" class="nav-link" data-i18n="nav_commitment">Nuestro Compromiso</a></li>
+          <li><a href="#servicios" class="nav-link" data-i18n="nav_services">Servicios</a></li>
+          <li><a href="#viajeros" class="nav-link" data-i18n="nav_rci">RCI & SOAPEX</a></li>
+          <li><a href="#companias" class="nav-link" data-i18n="nav_carriers">Compañías CMF</a></li>
+          <li><a href="#testimonios" class="nav-link" data-i18n="nav_testimonials">Testimonios</a></li>
+          <li><a href="#faq" class="nav-link" data-i18n="nav_faq">Preguntas</a></li>
           <li><a href="#alianzas" class="nav-link" data-i18n="nav_alliances">Alianzas B2B</a></li>
         </ul>
       </nav>
@@ -105,12 +107,12 @@
           <div class="hero-ctas">
             <a href="#servicios" class="btn btn-primary" data-i18n="hero_btn_generales">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              Cotizar Seguros Generales
+              Cotizar un Seguro
             </a>
 
             <a href="#viajeros" class="btn btn-secondary" data-i18n="hero_btn_rci">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-              Cotizar RCI Mercosur & SOAPEX
+              RCI Mercosur & SOAPEX
             </a>
 
             <a href="#" class="btn btn-whatsapp-outline" id="hero-wa-btn" aria-label="WhatsApp directo con Jeanette">
@@ -159,15 +161,20 @@
               <span class="card-highlight-label" data-i18n="stat_1_label">Asesoría Profesional y Personalizada</span>
             </div>
             <div class="card-highlight-box">
-              <span class="card-highlight-number" data-i18n="stat_2_num">+15</span>
-              <span class="card-highlight-label" data-i18n="stat_2_label">Aseguradoras Reguladas en Chile</span>
+              <span class="card-highlight-number" data-i18n="stat_2_num">5</span>
+              <span class="card-highlight-label" data-i18n="stat_2_label">Compañías Líderes CMF en Chile</span>
             </div>
           </div>
 
           <div class="hero-card-cta-box">
-            <p data-i18n="profile_box_text">¿Tienes dudas sobre una póliza o necesitas gestionar un seguro?</p>
-            <button class="btn btn-secondary btn-sm" data-open-modal data-subject="Consulta Directa con Jeanette" data-i18n="profile_box_btn" style="width: 100%;">
-              Conversar con Jeanette
+            <div class="profile-direct-indicator">
+              <span class="pulse-dot"></span>
+              <span>Atención Personalizada Directa</span>
+            </div>
+            <p data-i18n="profile_box_text" style="margin: 6px 0 12px; font-size: 0.88rem; color: var(--text-secondary);">¿Tienes dudas sobre una póliza o necesitas gestionar un seguro?</p>
+            <button class="btn-card-direct" data-open-modal data-subject="Consulta Directa con Jeanette" data-i18n="profile_box_btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              Hablar con tu Corredora
             </button>
           </div>
         </div>
@@ -887,25 +894,174 @@
   </section>
 
   <!-- ======================================================================
-       ASEGURADORAS REGULADAS (Alianzas de Mercado)
+       COMPAÑÍAS ASEGURADORAS OFICIALES (Reguladas por la CMF en Chile)
        ====================================================================== -->
-  <section class="carriers-section">
+  <section id="companias" class="carriers-section">
     <div class="container">
-      <div class="carriers-title" data-i18n="carriers_title">
-        Trabajamos con las principales aseguradoras reguladas por la CMF en Chile
+      <div class="section-tag" style="text-align: center; margin-bottom: 8px;" data-i18n="carriers_tag">Respaldo y Solidez</div>
+      <h2 style="text-align: center; font-size: 1.85rem; color: var(--primary-navy); margin-bottom: 12px;" data-i18n="carriers_title">
+        Compañías con las que Trabajo
+      </h2>
+      <p style="text-align: center; max-width: 680px; margin: 0 auto 36px; color: var(--text-secondary); font-size: 0.95rem;" data-i18n="carriers_desc">
+        Pólizas intermediadas y respaldadas por las principales compañías aseguradoras autorizadas e inspeccionadas por la Comisión para el Mercado Financiero (CMF) de Chile.
+      </p>
+
+      <div class="carriers-grid-official">
+        <div class="carrier-card">
+          <div class="carrier-badge-cmf">CMF Regulada</div>
+          <h3 class="carrier-name">Mapfre</h3>
+          <p class="carrier-desc" data-i18n="carrier_mapfre_desc">Líder internacional en seguros generales, vehículos, hogar y protección empresarial integral.</p>
+        </div>
+
+        <div class="carrier-card">
+          <div class="carrier-badge-cmf">CMF Regulada</div>
+          <h3 class="carrier-name">Zurich</h3>
+          <p class="carrier-desc" data-i18n="carrier_zurich_desc">Solidez y prestigio asegurador suizo. Coberturas patrimoniales, automotriz y vida con estándares mundiales.</p>
+        </div>
+
+        <div class="carrier-card">
+          <div class="carrier-badge-cmf">CMF Regulada</div>
+          <h3 class="carrier-name">Renta Nacional</h3>
+          <p class="carrier-desc" data-i18n="carrier_renta_desc">Tradición aseguradora chilena. Especialistas en vehículos, transporte, carga, garantías y RCI Mercosur.</p>
+        </div>
+
+        <div class="carrier-card">
+          <div class="carrier-badge-cmf">CMF Regulada</div>
+          <h3 class="carrier-name">Consorcio</h3>
+          <p class="carrier-desc" data-i18n="carrier_consorcio_desc">El mayor grupo asegurador no bancario de Chile. Excelencia en seguros automotrices, colectivos y salud.</p>
+        </div>
+
+        <div class="carrier-card">
+          <div class="carrier-badge-cmf">CMF Regulada</div>
+          <h3 class="carrier-name">Bice Vida</h3>
+          <p class="carrier-desc" data-i18n="carrier_bice_desc">Referente nacional en protección personal, seguros de vida con ahorro, complementarios de salud y bienestar.</p>
+        </div>
       </div>
-      <div class="carriers-grid">
-        <span class="carrier-pill">Bci Seguros</span>
-        <span class="carrier-pill">HDI Seguros</span>
-        <span class="carrier-pill">Mapfre</span>
-        <span class="carrier-pill">Zurich</span>
-        <span class="carrier-pill">Sura</span>
-        <span class="carrier-pill">Consorcio</span>
-        <span class="carrier-pill">MetLife</span>
-        <span class="carrier-pill">Chilena Consolidada</span>
-        <span class="carrier-pill">Reale Seguros</span>
-        <span class="carrier-pill">Liberty Seguros</span>
-        <span class="carrier-pill">Assist Card</span>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       TESTIMONIOS / PRUEBA SOCIAL (Experiencias Reales de Clientes)
+       ====================================================================== -->
+  <section id="testimonios" class="testimonials-section">
+    <div class="container">
+      <div class="section-tag" style="text-align: center; margin-bottom: 8px;" data-i18n="testi_tag">Experiencias Reales</div>
+      <h2 style="text-align: center; font-size: 1.85rem; color: var(--primary-navy); margin-bottom: 12px;" data-i18n="testi_title">
+        La Tranquilidad de Contar con una Asesora Titular
+      </h2>
+      <p style="text-align: center; max-width: 640px; margin: 0 auto 36px; color: var(--text-secondary); font-size: 0.95rem;" data-i18n="testi_desc">
+        La diferencia de contratar con Jeanette Salinas Ponce: cercanía humana, defensa técnica y respuesta oportuna cuando más lo necesitas.
+      </p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="testi_1_text">
+            «Jeanette comparó varias opciones entre Zurich y Renta Nacional para la flota de vehículos de mi empresa. Nos ahorró tiempo y dinero, y cuando tuvimos un choque menor, gestionó el taller de inmediato. Excelente servicio.»
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AM</div>
+            <div class="testimonial-info">
+              <h4>Alejandro Morales</h4>
+              <p>Transportes & Logística · Santiago</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="testi_2_text">
+            «Viajamos a Bariloche en familia y nos acordamos del RCI Mercosur a última hora un día viernes. Jeanette nos emitió la póliza en un par de horas directo a WhatsApp, todo claro para la aduana. Súper profesional.»
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">VS</div>
+            <div class="testimonial-info">
+              <h4>Valeria Sotomayor</h4>
+              <p>Particular · RCI Mercosur</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="testi_3_text">
+            «Contratar con Jeanette no cuesta ni un peso más que directo en la aseguradora, pero la diferencia es abismal: cuando tienes un problema hablas con ella directamente, no con un call center impersonal.»
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RF</div>
+            <div class="testimonial-info">
+              <h4>Rodrigo Fuenzalida</h4>
+              <p>Seguro Hogar & Automotriz · Viña del Mar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       PREGUNTAS FRECUENTES (FAQ Acordeón)
+       ====================================================================== -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-tag" style="text-align: center; margin-bottom: 8px;" data-i18n="faq_tag">Resolvemos tus dudas</div>
+      <h2 style="text-align: center; font-size: 1.85rem; color: var(--primary-navy); margin-bottom: 12px;" data-i18n="faq_title">
+        Preguntas Frecuentes
+      </h2>
+      <p style="text-align: center; max-width: 600px; margin: 0 auto 36px; color: var(--text-secondary); font-size: 0.95rem;" data-i18n="faq_desc">
+        Todo lo que necesitas saber antes de cotizar o contratar tus seguros con nosotros.
+      </p>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span data-i18n="faq_q1">¿Tiene algún costo adicional contratar con Jeanette en vez de directo con la aseguradora?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq_a1"><strong>No, absolutamente ninguno.</strong> La prima o costo de tu póliza es exactamente el mismo que ofrece la compañía. La intermediación es remunerada por la aseguradora regulada, lo que significa que obtienes asesoría profesional personalizada, defensa en siniestros y acompañamiento permanente sin pagar ni un peso extra.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span data-i18n="faq_q2">¿Cuánto demora la emisión de un seguro RCI Mercosur o SOAPEX?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq_a2">La emisión es 100% digital y sumamente ágil. Una vez que nos envías los datos básicos del vehículo y conductor, la póliza oficial se emite en el mismo día y la recibes en formato PDF directamente en tu WhatsApp y correo electrónico, válida de inmediato para controles aduaneros y policiales.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span data-i18n="faq_q3">¿Con qué compañías aseguradoras trabaja JSP Seguros?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq_a3">Trabajo exclusivamente con compañías de primer nivel acreditadas y reguladas por la CMF en Chile: <strong>Mapfre, Zurich, Renta Nacional, Consorcio y Bice Vida</strong>. Esto te asegura solidez financiera y respaldo legal garantizado.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span data-i18n="faq_q4">¿Qué debo hacer si tengo un siniestro o choque?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq_a4">Bajo mi lema <em>«Yo gestiono por ti»</em>, ante cualquier incidente te comunicas directamente conmigo. Te oriento paso a paso en la declaración, gestiono la activación de asistencias de grúa o vehículo de reemplazo y realizo el seguimiento directo con el liquidador y taller de la aseguradora.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span data-i18n="faq_q5">¿Puedo contratar si estoy en regiones de Chile o en el extranjero?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq_a5">Sí, por supuesto. Toda la gestión se realiza de forma remota, digital y segura. Atiendo clientes en todas las regiones de Chile y conductores o empresas de Argentina, Brasil, Uruguay, Paraguay y Bolivia que necesitan circular o ingresar a Chile con seguro al día.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -937,11 +1093,11 @@
         </div>
 
         <div class="footer-col">
-          <h5>Especialidades</h5>
+          <h5>Navegación Rápida</h5>
           <ul class="footer-links">
-            <li><a href="#servicios" data-open-modal data-subject="Vehículos Particulares y Comerciales">Vehículos Particulares y Comerciales</a></li>
-            <li><a href="#servicios" data-open-modal data-subject="Hogar, Incendio y Sismo">Hogar, Incendio y Sismo</a></li>
-            <li><a href="#servicios" data-open-modal data-subject="Transporte y Carga">Transporte y Carga</a></li>
+            <li><a href="#companias">Compañías CMF</a></li>
+            <li><a href="#testimonios">Testimonios de Clientes</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
             <li><a href="#alianzas">Alianzas Comerciales B2B</a></li>
           </ul>
         </div>
@@ -1023,7 +1179,7 @@
   </div>
 
   <!-- Script interactivo -->
-  <script src="app.js?v=3.0"></script>
+  <script src="app.js?v=4.0"></script>
 
   <!-- Firebase SDK para JSP Seguros Web (Analytics y Registro de Solicitudes) -->
   <script type="module">

@@ -14,9 +14,11 @@ const JEANETTE_PHONE = "56996173591";
 const translations = {
   es: {
     brand_sub: "Corredora de Seguros Titular · CMF",
-    nav_services: "Nuestros Servicios",
-    nav_rci: "RCI Mercosur & SOAPEX",
-    nav_commitment: "Nuestro Compromiso",
+    nav_services: "Servicios",
+    nav_rci: "RCI & SOAPEX",
+    nav_carriers: "Compañías CMF",
+    nav_testimonials: "Testimonios",
+    nav_faq: "Preguntas",
     nav_alliances: "Alianzas B2B",
     nav_cta: "Solicitar Asesoría",
 
@@ -24,8 +26,8 @@ const translations = {
     hero_title: 'Asesoría Profesional en Seguros <br><span class="highlight">y Protección Patrimonial</span>',
     hero_slogan: "Yo gestiono por ti.",
     hero_desc: "En JSP Seguros entrego asesoría profesional y personalizada, orientada a proteger los bienes, el patrimonio y el bienestar de personas, familias y empresas. Identifico las necesidades de cada cliente y busco alternativas de protección adecuadas, acompañándolo desde la cotización y contratación hasta la renovación y gestión de sus seguros.",
-    hero_btn_generales: "Cotizar Seguros Generales",
-    hero_btn_rci: "Cotizar RCI Mercosur & SOAPEX",
+    hero_btn_generales: "Cotizar un Seguro",
+    hero_btn_rci: "RCI Mercosur & SOAPEX",
     hero_trust_1: "Corredora de Seguros Titular CMF",
     hero_trust_2: "Atención Nacional e Internacional",
     hero_trust_3: "Gestión Integral: Cotización a Siniestro",
@@ -35,10 +37,10 @@ const translations = {
     profile_badge: "Registro CMF Verificado",
     stat_1_num: "100%",
     stat_1_label: "Asesoría Profesional y Personalizada",
-    stat_2_num: "+15",
-    stat_2_label: "Aseguradoras Reguladas en Chile",
+    stat_2_num: "5",
+    stat_2_label: "Compañías Líderes CMF en Chile",
     profile_box_text: "¿Tienes dudas sobre una póliza o necesitas gestionar un seguro?",
-    profile_box_btn: "Conversar con Jeanette",
+    profile_box_btn: "Hablar con tu Corredora",
 
     banner_intl_badge: "Atención Especializada para Viajeros y Extranjeros",
     banner_intl_title: "Seguros RCI Mercosur & SOAPEX para circular por Sudamérica",
@@ -101,9 +103,11 @@ const translations = {
 
   en: {
     brand_sub: "Licensed Insurance Broker · CMF Chile",
-    nav_services: "Our Services",
-    nav_rci: "RCI Mercosur & SOAPEX",
-    nav_commitment: "Our Commitment",
+    nav_services: "Services",
+    nav_rci: "RCI & SOAPEX",
+    nav_carriers: "CMF Companies",
+    nav_testimonials: "Testimonials",
+    nav_faq: "FAQ",
     nav_alliances: "B2B Alliances",
     nav_cta: "Request Advisory",
 
@@ -111,8 +115,8 @@ const translations = {
     hero_title: 'Professional Insurance Advisory <br><span class="highlight">& Asset Protection</span>',
     hero_slogan: "I manage everything for you.",
     hero_desc: "At JSP Seguros I provide professional, personalized advisory aimed at protecting the assets, property, and well-being of individuals, families, and businesses. I assess each client's specific needs and find suitable protection alternatives, supporting them from initial quotation and contracting through renewals and claims management.",
-    hero_btn_generales: "Quote General Insurance",
-    hero_btn_rci: "Quote RCI Mercosur & SOAPEX",
+    hero_btn_generales: "Get a Quote",
+    hero_btn_rci: "RCI Mercosur & SOAPEX",
     hero_trust_1: "Licensed Broker CMF Chile",
     hero_trust_2: "Domestic & International Clients",
     hero_trust_3: "Full Support: Quote to Claims",
@@ -122,10 +126,10 @@ const translations = {
     profile_badge: "Verified CMF License",
     stat_1_num: "100%",
     stat_1_label: "Professional & Personal Advisory",
-    stat_2_num: "+15",
-    stat_2_label: "Regulated Insurers in Chile",
+    stat_2_num: "5",
+    stat_2_label: "Top CMF-Regulated Insurers in Chile",
     profile_box_text: "Have questions about a policy or need help with a claim?",
-    profile_box_btn: "Speak with Jeanette",
+    profile_box_btn: "Speak with Your Broker",
 
     banner_intl_badge: "Specialized Service for Travelers & Foreign Drivers",
     banner_intl_title: "RCI Mercosur & SOAPEX Insurance for South American Transit",
@@ -197,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWizard();
   initWhatsApp();
   initModals();
+  initFaq();
 });
 
 /* ==========================================================================
@@ -586,4 +591,22 @@ function showToast(message) {
   setTimeout(() => {
     toast.classList.remove('show');
   }, 4000);
+}
+
+/* ==========================================================================
+   7. PREGUNTAS FRECUENTES (FAQ ACORDEÓN)
+   ========================================================================== */
+function initFaq() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-question');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      faqItems.forEach(i => i.classList.remove('active'));
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
 }
