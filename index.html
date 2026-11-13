@@ -38,7 +38,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Hoja de estilos JSP Seguros -->
-  <link rel="stylesheet" href="styles.css?v=5.0" />
+  <link rel="stylesheet" href="styles.css?v=6.0" />
 </head>
 <body>
 
@@ -105,20 +105,26 @@
           </p>
 
           <div class="hero-ctas">
-            <a href="#servicios" class="btn btn-primary" data-i18n="hero_btn_generales">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              Cotizar un Seguro
-            </a>
+            <button type="button" class="btn btn-primary btn-cta-hero" data-open-modal data-subject="Seguros Generales" aria-label="Cotizar un Seguro">
+              <span class="btn-main-label">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span data-i18n="hero_btn_generales">Cotizar un Seguro</span>
+              </span>
+              <small class="btn-channel-note" data-i18n="hero_note_generales">Formulario web · Respuesta por correo</small>
+            </button>
 
-            <a href="#viajeros" class="btn btn-secondary" data-i18n="hero_btn_rci">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-              RCI Mercosur & SOAPEX
-            </a>
+            <button type="button" class="btn btn-secondary btn-cta-hero" data-open-modal data-subject="RCI Mercosur & SOAPEX" aria-label="Cotizar RCI Mercosur y SOAPEX">
+              <span class="btn-main-label">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span data-i18n="hero_btn_rci">Cotizar RCI Mercosur / SOAPEX</span>
+              </span>
+              <small class="btn-channel-note" data-i18n="hero_note_rci">Formulario específico · Envío por correo</small>
+            </button>
 
-            <a href="#" class="btn btn-whatsapp-outline" id="hero-wa-btn" aria-label="WhatsApp directo con Jeanette">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-              WhatsApp Directo
-            </a>
+            <p class="hero-ctas-reassurance" data-i18n="hero_ctas_reassurance">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>Completa el formulario y te responderemos por correo</span>
+            </p>
           </div>
 
           <div class="hero-trust-row">
@@ -169,13 +175,16 @@
           <div class="hero-card-cta-box">
             <div class="profile-direct-indicator">
               <span class="pulse-dot"></span>
-              <span>Atención Personalizada Directa</span>
+              <span data-i18n="profile_direct_tag">Acceso Exclusivo a WhatsApp</span>
             </div>
-            <p data-i18n="profile_box_text" style="margin: 6px 0 12px; font-size: 0.88rem; color: var(--text-secondary);">¿Tienes dudas sobre una póliza o necesitas gestionar un seguro?</p>
-            <button class="btn-card-direct" data-open-modal data-subject="Consulta Directa con Jeanette" data-i18n="profile_box_btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-              Hablar con tu Corredora
-            </button>
+            <p data-i18n="profile_box_text" style="margin: 6px 0 12px; font-size: 0.88rem; color: var(--text-secondary);">¿Necesitas atención directa de tu corredora titular?</p>
+            <a href="https://wa.me/56996173591?text=Hola%20Jeanette!%20Te%20escribo%20desde%20tu%20sitio%20web%20segurosjsp.com%20para%20solicitar%20asesor%C3%ADa%20personalizada." target="_blank" rel="noopener" class="btn-card-direct btn-wa-direct" id="hero-card-wa-btn" aria-label="Hablar con Jeanette por WhatsApp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              <div style="display:flex; flex-direction:column; align-items:flex-start; line-height:1.2;">
+                <span data-i18n="profile_box_btn" style="font-weight:700;">Hablar con Jeanette</span>
+                <small style="font-size:0.75rem; font-weight:500; opacity:0.95;" data-i18n="profile_box_channel">Atención directa · WhatsApp de Jeanette</small>
+              </div>
+            </a>
           </div>
         </div>
 
@@ -1122,12 +1131,15 @@
   <!-- ======================================================================
        BOTÓN FLOTANTE ELEGANTE: PREGÚNTALE A CLARA
        ====================================================================== -->
-  <a href="#" id="clara-floating-btn" class="clara-floating-pill" aria-label="Pregúntale a Clara">
+  <a href="#" id="clara-floating-btn" class="clara-floating-pill" aria-label="Pregúntale a Clara - Asistente virtual de JSP">
     <div class="clara-avatar-box">
-      <img src="clara-avatar.png?v=1" alt="Clara Asesora Virtual" class="clara-avatar-img" />
+      <img src="clara-avatar.png?v=2" alt="Clara Asistente Virtual" class="clara-avatar-img" />
       <span class="clara-status-dot"></span>
     </div>
-    <span class="clara-pill-text" data-i18n="floating_clara_text">Pregúntale a Clara</span>
+    <div class="clara-pill-content">
+      <span class="clara-pill-title" data-i18n="floating_clara_text">Pregúntale a Clara</span>
+      <span class="clara-pill-sub" data-i18n="floating_clara_sub">Asistente virtual de JSP</span>
+    </div>
   </a>
 
   <!-- ======================================================================
@@ -1181,7 +1193,7 @@
   </div>
 
   <!-- Script interactivo -->
-  <script src="app.js?v=5.0"></script>
+  <script src="app.js?v=6.0"></script>
 
   <!-- Firebase SDK para JSP Seguros Web (Analytics y Registro de Solicitudes) -->
   <script type="module">

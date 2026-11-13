@@ -344,7 +344,48 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
+}
+
+.btn-cta-hero {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 20px;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.btn-cta-hero .btn-main-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.btn-cta-hero .btn-channel-note {
+  font-size: 0.74rem;
+  font-weight: 500;
+  opacity: 0.88;
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+
+.hero-ctas-reassurance {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.hero-ctas-reassurance svg {
+  color: var(--emerald-accent);
+  flex-shrink: 0;
 }
 
 .hero-trust-row {
@@ -1204,8 +1245,39 @@ a {
   border: 1.5px solid #FFFFFF;
 }
 
-.clara-pill-text {
-  white-space: nowrap;
+.clara-pill-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.clara-pill-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+
+.clara-pill-sub {
+  font-size: 0.67rem;
+  color: var(--emerald-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.btn-wa-direct {
+  background: linear-gradient(135deg, #25D366 0%, #059669 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35) !important;
+  text-decoration: none;
+}
+
+.btn-wa-direct:hover {
+  background: linear-gradient(135deg, #1EBE5D 0%, #047857 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.45) !important;
+  color: #FFFFFF !important;
 }
 
 @media (max-width: 600px) {
@@ -1213,11 +1285,16 @@ a {
     bottom: 20px;
     right: 18px;
     padding: 5px 14px 5px 6px;
-    font-size: 0.82rem;
   }
   .clara-avatar-box {
     width: 30px;
     height: 30px;
+  }
+  .clara-pill-title {
+    font-size: 0.8rem;
+  }
+  .clara-pill-sub {
+    font-size: 0.64rem;
   }
 }
 

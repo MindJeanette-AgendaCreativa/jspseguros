@@ -28,7 +28,10 @@ const translations = {
     hero_slogan: "Yo gestiono por ti.",
     hero_desc: "En JSP Seguros entrego asesoría profesional y personalizada, orientada a proteger los bienes, el patrimonio y el bienestar de personas, familias y empresas. Identifico las necesidades de cada cliente y busco alternativas de protección adecuadas, acompañándolo desde la cotización y contratación hasta la renovación y gestión de sus seguros.",
     hero_btn_generales: "Cotizar un Seguro",
-    hero_btn_rci: "RCI Mercosur & SOAPEX",
+    hero_note_generales: "Formulario web · Respuesta por correo",
+    hero_btn_rci: "Cotizar RCI Mercosur / SOAPEX",
+    hero_note_rci: "Formulario específico · Envío por correo",
+    hero_ctas_reassurance: "Completa el formulario y te responderemos por correo",
     hero_trust_1: "Corredora de Seguros Titular CMF",
     hero_trust_2: "Atención Nacional e Internacional",
     hero_trust_3: "Gestión Integral: Cotización a Siniestro",
@@ -40,8 +43,11 @@ const translations = {
     stat_1_label: "Asesoría Profesional y Personalizada",
     stat_2_num: "5",
     stat_2_label: "Compañías Líderes CMF en Chile",
-    profile_box_text: "¿Tienes dudas sobre una póliza o necesitas gestionar un seguro?",
-    profile_box_btn: "Hablar con tu Corredora",
+    profile_direct_tag: "Acceso Exclusivo a WhatsApp",
+    profile_box_text: "¿Necesitas atención directa de tu corredora titular?",
+    profile_box_btn: "Hablar con Jeanette",
+    profile_box_channel: "Atención directa · WhatsApp de Jeanette",
+    floating_clara_sub: "Asistente virtual de JSP",
 
     banner_intl_badge: "Atención Especializada para Viajeros y Extranjeros",
     banner_intl_title: "Seguros RCI Mercosur & SOAPEX para circular por Sudamérica",
@@ -117,8 +123,11 @@ const translations = {
     hero_title: 'Professional Insurance Advisory <br><span class="highlight">& Asset Protection</span>',
     hero_slogan: "I manage everything for you.",
     hero_desc: "At JSP Seguros I provide professional, personalized advisory aimed at protecting the assets, property, and well-being of individuals, families, and businesses. I assess each client's specific needs and find suitable protection alternatives, supporting them from initial quotation and contracting through renewals and claims management.",
-    hero_btn_generales: "Get a Quote",
-    hero_btn_rci: "RCI Mercosur & SOAPEX",
+    hero_btn_generales: "Get an Insurance Quote",
+    hero_note_generales: "Web form · Response by email",
+    hero_btn_rci: "Quote RCI Mercosur / SOAPEX",
+    hero_note_rci: "Specific form · Sent by email",
+    hero_ctas_reassurance: "Fill out the form and we will reply by email",
     hero_trust_1: "Licensed Broker CMF Chile",
     hero_trust_2: "Domestic & International Clients",
     hero_trust_3: "Full Support: Quote to Claims",
@@ -130,8 +139,11 @@ const translations = {
     stat_1_label: "Professional & Personal Advisory",
     stat_2_num: "5",
     stat_2_label: "Top CMF-Regulated Insurers in Chile",
-    profile_box_text: "Have questions about a policy or need help with a claim?",
-    profile_box_btn: "Speak with Your Broker",
+    profile_direct_tag: "Exclusive WhatsApp Access",
+    profile_box_text: "Need direct assistance from your licensed broker?",
+    profile_box_btn: "Speak with Jeanette",
+    profile_box_channel: "Direct attention · Jeanette's WhatsApp",
+    floating_clara_sub: "JSP Virtual Assistant",
 
     banner_intl_badge: "Specialized Service for Travelers & Foreign Drivers",
     banner_intl_title: "RCI Mercosur & SOAPEX Insurance for South American Transit",
@@ -320,47 +332,39 @@ function initWizard() {
 /* ==========================================================================
    4. WHATSAPP INTELIGENTE CONTEXTUAL
    ========================================================================== */
+// Configuración de contacto para Clara (Asistente virtual de JSP)
+// Se conectará al número propio de Clara cuando esté disponible (ej. "569XXXXXXXX")
+const CLARA_PHONE = ""; 
+
 function initWhatsApp() {
-  const claraBtn = document.getElementById('clara-floating-btn') || document.getElementById('whatsapp-floating-btn');
-  const heroBtn = document.getElementById('hero-wa-btn');
-  const footerLink = document.getElementById('footer-wa-link');
+  const claraBtn = document.getElementById('clara-floating-btn');
 
-  const handleClaraClick = (e) => {
-    e.preventDefault();
-    let msg = "";
-
-    if (activeCategory === 'rci') {
-      msg = currentLang === 'es'
-        ? "Hola Clara, me gustaría cotizar o consultar sobre el seguro RCI Mercosur o SOAPEX."
-        : "Hello Clara, I would like to inquire about RCI Mercosur or SOAPEX insurance.";
-    } else if (activeCategory === 'generales') {
-      msg = currentLang === 'es'
-        ? "Hola Clara! Me gustaría consultar por opciones de Seguros Generales (vehículo, hogar, empresa)."
-        : "Hello Clara! I would like to ask about General Insurance options.";
-    } else if (activeCategory === 'colectivos') {
-      msg = currentLang === 'es'
-        ? "Hola Clara! Me gustaría cotizar Seguros Colectivos para mi empresa o equipo."
-        : "Hello Clara! I would like a quote for Group Insurance.";
-    } else {
-      msg = currentLang === 'es'
-        ? "Hola Clara! Estoy revisando la web de JSP Seguros y me gustaría hacer una consulta."
-        : "Hello Clara! I am browsing the JSP Seguros website and would like to ask a question.";
-    }
-
-    sendWhatsAppMessage(msg);
-  };
-
-  const handleGeneralWaClick = (e) => {
-    e.preventDefault();
-    const msg = currentLang === 'es'
-      ? "Hola Jeanette! Me gustaría recibir asesoría para contratar o cotizar un seguro."
-      : "Hello Jeanette! I would like professional insurance advisory.";
-    sendWhatsAppMessage(msg);
-  };
-
-  if (claraBtn) claraBtn.addEventListener('click', handleClaraClick);
-  if (heroBtn) heroBtn.addEventListener('click', handleGeneralWaClick);
-  if (footerLink) footerLink.addEventListener('click', handleGeneralWaClick);
+  if (claraBtn) {
+    claraBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (CLARA_PHONE && CLARA_PHONE.trim().length > 0) {
+        // Conectado al número propio de Clara cuando esté disponible
+        const msg = currentLang === 'es'
+          ? "Hola Clara! Te escribo desde la web de JSP Seguros para hacerte una consulta."
+          : "Hello Clara! I am writing from the JSP Seguros website to ask a question.";
+        window.open(`https://wa.me/${CLARA_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+      } else {
+        // Mientras se habilita su número propio, abre el formulario web para respuesta por correo
+        const backdrop = document.getElementById('contact-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalSubject = document.getElementById('form-subject');
+        const modalNotes = document.getElementById('form-notes');
+        
+        if (modalSubject) modalSubject.value = "Consulta Asistente Clara";
+        if (modalTitle) modalTitle.textContent = currentLang === 'es' ? "Pregúntale a Clara · Asistente Virtual de JSP" : "Ask Clara · JSP Virtual Assistant";
+        if (modalNotes) modalNotes.placeholder = currentLang === 'es' 
+          ? "Escribe tu consulta para Clara (vehículos, RCI Mercosur, hogar, colectivos...). Te responderemos por correo a la brevedad." 
+          : "Type your inquiry for Clara (vehicles, RCI Mercosur, home, group policies...). We will reply by email shortly.";
+        
+        if (backdrop) backdrop.classList.add('active');
+      }
+    });
+  }
 }
 
 function updateWhatsAppTooltip() {
