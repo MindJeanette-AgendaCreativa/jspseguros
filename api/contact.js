@@ -4,7 +4,7 @@
  *
  * Configuración:
  * - Remitente oficial: JSP Seguros <contacto@segurosjsp.com>
- * - Aviso a Jeanette: js0565330@gmail.com con Reply-To al visitante
+ * - Aviso a Jeanette: jsp.seguros.eirl@gmail.com con Reply-To al visitante
  * - Confirmación al visitante: acuse de recibo profesional
  * - Clave API: RESEND_API_KEY (almacenada estrictamente en el entorno del servidor)
  */
@@ -105,7 +105,7 @@ module.exports = async function handler(req, res) {
     });
 
     const SENDER_EMAIL = 'JSP Seguros <contacto@segurosjsp.com>';
-    const JEANETTE_EMAIL = 'js0565330@gmail.com';
+    const JEANETTE_EMAIL = 'jsp.seguros.eirl@gmail.com';
 
     // 7. Plantilla HTML 1: Aviso de nueva consulta para Jeanette Salinas Ponce
     const adminHtml = `
