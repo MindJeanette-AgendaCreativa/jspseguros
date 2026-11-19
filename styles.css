@@ -159,8 +159,11 @@ a {
 }
 
 .btn-sm {
-  padding: 8px 16px;
-  font-size: 0.85rem;
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 
 /* Header & Barra de Navegación */
@@ -172,25 +175,28 @@ a {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-light);
-  padding: 14px 0;
+  padding: 10px 0;
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: clamp(10px, 1.4vw, 18px);
+  flex-wrap: nowrap;
 }
 
 .brand-wrapper {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  flex-shrink: 0;
+  text-decoration: none;
 }
 
 .brand-avatar {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-pill);
   object-fit: cover;
   border: 2px solid #FFFFFF;
@@ -205,43 +211,53 @@ a {
   display: flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 
 .brand-badge {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background: var(--bg-subtle);
   color: var(--text-secondary);
-  padding: 2px 7px;
+  padding: 2px 6px;
   border-radius: var(--radius-pill);
   border: 1px solid var(--border-light);
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .brand-subtitle {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
+  white-space: nowrap;
 }
 
 .brand-text-col {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: clamp(10px, 1.2vw, 18px);
   list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 1;
 }
 
 .nav-link {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.84rem;
+  font-weight: 600;
   color: var(--text-secondary);
   transition: color 0.15s ease;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 4px 2px;
 }
 
 .nav-link:hover {
@@ -251,35 +267,40 @@ a {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
-/* Lang Switcher */
+/* Lang Switcher (Compacto y Elegante) */
 .lang-switcher {
   display: inline-flex;
   align-items: center;
   background: var(--bg-subtle);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-pill);
-  padding: 3px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  padding: 2px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
 }
 
 .lang-btn {
   background: none;
   border: none;
-  padding: 4px 10px;
+  padding: 3px 7px;
   border-radius: var(--radius-pill);
   cursor: pointer;
   color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
   transition: all 0.15s ease;
 }
 
 .lang-btn.active {
   background: #FFFFFF;
   color: var(--primary-navy);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 /* Hero Section */
@@ -1384,25 +1405,40 @@ a {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1150px) {
+  .brand-subtitle {
+    display: none;
+  }
+  .header-inner {
+    gap: 12px;
+  }
+  .nav-links {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 960px) {
   .brand-text-col {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .site-header .nav-links {
     display: none;
   }
 }
 
 @media (max-width: 768px) {
   .site-header {
-    padding: 10px 0;
+    padding: 9px 0;
   }
   .site-header-logo {
-    height: 34px;
-    max-width: 155px;
+    height: 32px;
+    max-width: 150px;
   }
   .header-inner {
     gap: 10px;
-  }
-  .site-header .nav-links {
-    display: none;
   }
   .nav-actions {
     gap: 8px;
@@ -1543,9 +1579,9 @@ a {
 
 /* Logos en Header, Hero y Footer */
 .site-header-logo {
-  height: 44px;
+  height: 38px;
   width: auto;
-  max-width: 220px;
+  max-width: 185px;
   object-fit: contain;
   display: block;
 }
