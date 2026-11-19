@@ -9,6 +9,79 @@
   <meta name="keywords" content="JSP Seguros, Jeanette Salinas Ponce, Corredora de Seguros Chile, Seguros Generales Chile, RCI Mercosur, SOAPEX Chile, Seguros de Vida, Seguros Colectivos, CMF Chile" />
   <meta name="theme-color" content="#FAF8F5" />
   
+  <!-- Canónica y Relaciones Internacionales -->
+  <link rel="canonical" href="https://www.segurosjsp.com/" />
+  <link rel="alternate" hreflang="es-CL" href="https://www.segurosjsp.com/" />
+  <link rel="alternate" hreflang="es" href="https://www.segurosjsp.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.segurosjsp.com/" />
+
+  <!-- Metadatos de Geolocalización (GEO Chile) -->
+  <meta name="geo.region" content="CL-RM" />
+  <meta name="geo.placename" content="Santiago, Chile" />
+  <meta name="geo.position" content="-33.4489;-70.6693" />
+  <meta name="ICBM" content="-33.4489, -70.6693" />
+
+  <!-- Schema.org Datos Estructurados (SEO & GEO & Vinculación Oficial .cl y .com) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "InsuranceAgency",
+    "@id": "https://www.segurosjsp.com/#organization",
+    "name": "JSP Seguros · Jeanette Salinas Ponce",
+    "alternateName": [
+      "JSP Seguros",
+      "Seguros JSP",
+      "Jeanette Salinas Ponce Corredora de Seguros",
+      "JSP Seguros Chile"
+    ],
+    "url": "https://www.segurosjsp.com/",
+    "sameAs": [
+      "https://www.jspseguros.cl/",
+      "https://jspseguros.cl/",
+      "https://www.segurosjsp.com/"
+    ],
+    "logo": "https://www.segurosjsp.com/logo-green-horizontal.png?v=5",
+    "image": "https://www.segurosjsp.com/og-image.png?v=5",
+    "description": "Asesoría profesional en seguros y protección patrimonial para personas, familias y empresas en Chile. Especialistas en Seguros Generales, RCI Mercosur y SOAPEX.",
+    "telephone": "+56996173591",
+    "email": "jsp.seguros.eirl@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santiago",
+      "addressRegion": "Región Metropolitana",
+      "addressCountry": "CL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -33.4489,
+      "longitude": -70.6693
+    },
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "Chile"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Mercosur"
+      }
+    ],
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:30"
+    }
+  }
+  </script>
+
   <!-- Open Graph / Redes Sociales (WhatsApp, LinkedIn, Twitter, Facebook) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.segurosjsp.com/" />
@@ -38,7 +111,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Hoja de estilos JSP Seguros -->
-  <link rel="stylesheet" href="styles.css?v=6.1" />
+  <link rel="stylesheet" href="styles.css?v=6.2" />
 </head>
 <body>
 
@@ -1189,8 +1262,29 @@
     </div>
   </div>
 
+  <!-- ======================================================================
+       BANNER DE COOKIES & PRIVACIDAD
+       ====================================================================== -->
+  <aside id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies y privacidad">
+    <div class="container cookie-inner">
+      <div class="cookie-text-block">
+        <div class="cookie-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M7.5 15.5v.01"></path><path d="M16 16v.01"></path></svg>
+          <span data-i18n="cookie_title">Tu privacidad y experiencia en JSP Seguros</span>
+        </div>
+        <p class="cookie-desc" data-i18n="cookie_desc">
+          Utilizamos cookies técnicas necesarias para el funcionamiento del sitio y herramientas analíticas para optimizar tu experiencia y cotizaciones. Puedes aceptar todas o continuar solo con las esenciales.
+        </p>
+      </div>
+      <div class="cookie-actions">
+        <button id="cookie-essential-btn" class="btn btn-secondary btn-sm" data-i18n="cookie_btn_essential">Solo esenciales</button>
+        <button id="cookie-accept-btn" class="btn btn-primary btn-sm" data-i18n="cookie_btn_accept">Aceptar todas</button>
+      </div>
+    </div>
+  </aside>
+
   <!-- Script interactivo -->
-  <script src="app.js?v=6.1"></script>
+  <script src="app.js?v=6.2"></script>
 
   <!-- Firebase SDK para JSP Seguros Web (Analytics y Registro de Solicitudes) -->
   <script type="module">
@@ -1213,6 +1307,26 @@
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
 
+      // Activar Google Analytics con consentimiento del usuario (Cookies)
+      const initTrackingIfConsented = () => {
+        const consent = localStorage.getItem('jsp_cookies_consent');
+        if (consent === 'all' && !window._jspAnalyticsActive) {
+          window._jspAnalyticsActive = true;
+          try {
+            getAnalytics(app);
+          } catch (e) {
+            console.warn("Analytics no disponible:", e);
+          }
+        }
+      };
+
+      initTrackingIfConsented();
+      window.addEventListener('jsp_cookie_consent_updated', (e) => {
+        if (e.detail && e.detail.consent === 'all') {
+          initTrackingIfConsented();
+        }
+      });
+
       // Exponer función de registro global para capturar solicitudes de la web
       window.saveWebLeadToFirebase = async function(leadData) {
         try {
@@ -1220,7 +1334,7 @@
             ...leadData,
             fecha: serverTimestamp(),
             estado: "nuevo",
-            plataforma: "jspseguros.vercel.app"
+            plataforma: "segurosjsp.com"
           });
           console.log("Lead JSP registrado con ID:", docRef.id);
         } catch (err) {

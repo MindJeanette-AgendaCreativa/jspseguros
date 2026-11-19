@@ -105,7 +105,12 @@ const translations = {
     carriers_title: "Trabajamos con las principales aseguradoras reguladas por la CMF en Chile",
 
     footer_desc: "En JSP Seguros entrego asesoría profesional y personalizada, orientada a proteger los bienes, el patrimonio y el bienestar de personas, familias y empresas. Atención para clientes nacionales e internacionales.",
-    footer_rights: "© 2026 JSP Seguros · Jeanette Salinas Ponce (Corredora de Seguros Titular). Todos los derechos reservados."
+    footer_rights: "© 2026 JSP Seguros · Jeanette Salinas Ponce (Corredora de Seguros Titular). Todos los derechos reservados.",
+
+    cookie_title: "Tu privacidad y experiencia en JSP Seguros",
+    cookie_desc: "Utilizamos cookies técnicas necesarias para el funcionamiento del sitio y herramientas analíticas para optimizar tu experiencia y cotizaciones. Puedes aceptar todas o continuar solo con las esenciales.",
+    cookie_btn_essential: "Solo esenciales",
+    cookie_btn_accept: "Aceptar todas"
   },
 
   en: {
@@ -201,7 +206,12 @@ const translations = {
     carriers_title: "We work with top CMF-regulated insurance companies in Chile",
 
     footer_desc: "At JSP Seguros I provide professional, personalized advisory aimed at protecting the assets, property, and well-being of individuals, families, and businesses. Domestic and international service.",
-    footer_rights: "© 2026 JSP Seguros · Jeanette Salinas Ponce (Licensed Insurance Broker). All rights reserved."
+    footer_rights: "© 2026 JSP Seguros · Jeanette Salinas Ponce (Licensed Insurance Broker). All rights reserved.",
+
+    cookie_title: "Your Privacy & Experience at JSP Seguros",
+    cookie_desc: "We use essential technical cookies to ensure site functionality and analytics to optimize your advisory experience. You can accept all or continue with essential cookies only.",
+    cookie_btn_essential: "Essential only",
+    cookie_btn_accept: "Accept all"
   }
 };
 
@@ -216,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWhatsApp();
   initModals();
   initFaq();
+  initCookieConsent();
 });
 
 /* ==========================================================================
@@ -624,3 +635,36 @@ function initFaq() {
     });
   });
 }
+
+/* ==========================================================================
+   8. GESTIÓN DE CONSENTIMIENTO DE COOKIES & PRIVACIDAD
+   ========================================================================== */
+function initCookieConsent() {
+  const banner = document.getElementById('cookie-banner');
+  if (!banner) return;
+
+  const acceptBtn = document.getElementById('cookie-accept-btn');
+  const essentialBtn = document.getElementById('cookie-essential-btn');
+  const savedConsent = localStorage.getItem('jsp_cookies_consent');
+
+  if (!savedConsent) {
+    setTimeout(() => {
+      banner.classList.add('show');
+    }, 800);
+  }
+
+  function handleConsent(choice) {
+    localStorage.setItem('jsp_cookies_consent', choice);
+    banner.classList.remove('show');
+    window.dispatchEvent(new CustomEvent('jsp_cookie_consent_updated', { detail: { consent: choice } }));
+  }
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', () => handleConsent('all'));
+  }
+
+  if (essentialBtn) {
+    essentialBtn.addEventListener('click', () => handleConsent('essential'));
+  }
+}
+
