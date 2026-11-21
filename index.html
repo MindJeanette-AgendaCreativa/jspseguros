@@ -28,10 +28,13 @@
     "@type": "InsuranceAgency",
     "@id": "https://www.segurosjsp.com/#organization",
     "name": "JSP Seguros · Jeanette Salinas Ponce",
+    "legalName": "Herminda Jeannette Salinas Ponce",
+    "taxID": "8.090.131-3",
+    "identifier": "Registro CMF Nº 6066",
     "alternateName": [
       "JSP Seguros",
       "Seguros JSP",
-      "Jeanette Salinas Ponce Corredora de Seguros",
+      "Herminda Jeannette Salinas Ponce Corredora de Seguros",
       "JSP Seguros Chile"
     ],
     "url": "https://www.segurosjsp.com/",
@@ -45,6 +48,49 @@
     "description": "Asesoría profesional en seguros y protección patrimonial para personas, familias y empresas en Chile. Especialistas en Seguros Generales, RCI Mercosur y SOAPEX.",
     "telephone": "+56996173591",
     "email": "jsp.seguros.eirl@gmail.com",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Corredor de Seguros No Previsional (Persona Natural)",
+      "credentialCategory": "Registro CMF Nº 6066 - Vigente",
+      "recognizedBy": {
+        "@type": "GovernmentOrganization",
+        "name": "Comisión para el Mercado Financiero (CMF) de Chile",
+        "url": "https://www.cmfchile.cl"
+      }
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Catálogo de Seguros Oficiales",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Seguro RCI Mercosur",
+            "url": "https://www.segurosjsp.com/rci-mercosur",
+            "description": "Seguro obligatorio de Responsabilidad Civil Internacional para vehículos chilenos en Argentina, Brasil, Uruguay, Paraguay y Bolivia."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Seguro SOAPEX Chile",
+            "url": "https://www.segurosjsp.com/soapex",
+            "description": "Seguro Obligatorio de Accidentes Personales para vehículos extranjeros que ingresan a Chile según Ley 18.490."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Seguros Generales y de Empresa",
+            "url": "https://www.segurosjsp.com/#servicios",
+            "description": "Seguros de vehículos particulares y comerciales, hogar, sismo, transporte de carga, pymes y responsabilidad civil."
+          }
+        }
+      ]
+    },
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Santiago",
@@ -123,7 +169,7 @@
       <a href="#" class="brand-wrapper" aria-label="JSP Seguros Inicio">
         <img src="logo-green-horizontal.png?v=5" alt="Logo JSP Seguros" class="site-header-logo" />
         <div class="brand-text-col">
-          <div><span class="brand-badge">CMF Chile</span></div>
+          <div><span class="brand-badge">CMF Nº 6066</span></div>
           <div class="brand-subtitle" data-i18n="brand_sub">Corredora de Seguros Titular · CMF</div>
         </div>
       </a>
@@ -132,7 +178,8 @@
       <nav aria-label="Navegación principal">
         <ul class="nav-links">
           <li><a href="#servicios" class="nav-link" data-i18n="nav_services">Servicios</a></li>
-          <li><a href="#viajeros" class="nav-link" data-i18n="nav_rci">RCI & SOAPEX</a></li>
+          <li><a href="/rci-mercosur" class="nav-link">RCI Mercosur</a></li>
+          <li><a href="/soapex" class="nav-link">SOAPEX Chile</a></li>
           <li><a href="#companias" class="nav-link" data-i18n="nav_carriers">Compañías CMF</a></li>
           <li><a href="#testimonios" class="nav-link" data-i18n="nav_testimonials">Testimonios</a></li>
           <li><a href="#faq" class="nav-link" data-i18n="nav_faq">Preguntas</a></li>
@@ -229,7 +276,9 @@
               <p data-i18n="profile_role">Corredora de Seguros</p>
               <div class="profile-cmf-badge">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zm-2 16l-4-4 1.41-1.41L10 15.17l6.59-6.59L18 10l-8 8z"/></svg>
-                <span data-i18n="profile_badge">Registro CMF Verificado</span>
+                <a href="https://www.cmfchile.cl/institucional/mercados/entidad.php?mercado=S&rut=8090131&grupo=&tipoentidad=CSNAT&row=AAAwU3AAWAAAAGbAAU&vig=VI&control=svs&pestania=1&tpl=alt" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;" title="Verificar registro oficial en CMF Chile">
+                  <span data-i18n="profile_badge">Registro CMF Nº 6066 (Vigente)</span>
+                </a>
               </div>
             </div>
           </div>
@@ -802,13 +851,22 @@
               </li>
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span data-i18n="wizard_b3">Emisión digital inmediata enviada directamente a tu correo y WhatsApp.</span>
+                <span data-i18n="wizard_b3">Emisión digital oficial: Los plazos y condiciones son confirmados directamente por Jeanette tras la revisión de antecedentes y pago.</span>
               </li>
             </ul>
           </div>
 
           <div style="font-size: 0.82rem; color: #94A3B8; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px;">
-            Atención personalizada de Jeanette Salinas Ponce (Corredora de Seguros Titular). Cumple normativas vigentes en Chile y el Mercosur.
+            Atención personalizada de Herminda Jeannette Salinas Ponce (Corredora de Seguros Titular · Registro CMF Nº 6066). Cumple normativas vigentes en Chile y el Mercosur.
+          </div>
+
+          <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 8px;">
+            <a href="/rci-mercosur" style="color: #6EE7B7; font-size: 0.86rem; text-decoration: underline; font-weight: 600;">
+              → Guía completa, requisitos y antecedentes RCI Mercosur
+            </a>
+            <a href="/soapex" style="color: #6EE7B7; font-size: 0.86rem; text-decoration: underline; font-weight: 600;">
+              → Guía completa, requisitos y antecedentes SOAPEX Chile
+            </a>
           </div>
         </div>
 
@@ -1111,7 +1169,7 @@
             <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer">
-            <p data-i18n="faq_a2">La emisión es 100% digital y sumamente ágil. Una vez que nos envías los datos básicos del vehículo y conductor, la póliza oficial se emite en el mismo día y la recibes en formato PDF directamente en tu WhatsApp y correo electrónico, válida de inmediato para controles aduaneros y policiales.</p>
+            <p data-i18n="faq_a2">La gestión es remota y digital. Los plazos exactos de emisión y entrega de la póliza oficial son confirmados directamente por Jeanette al momento de recepcionar los antecedentes completos del vehículo y el comprobante de pago, enviándote el documento oficial en PDF directamente a tu correo y WhatsApp para aduanas.</p>
           </div>
         </div>
 
@@ -1167,8 +1225,8 @@
           <h5>Líneas de Cobertura</h5>
           <ul class="footer-links">
             <li><a href="#servicios" data-open-modal data-subject="Seguros Generales">Seguros Generales</a></li>
-            <li><a href="#viajeros">Seguros RCI Mercosur</a></li>
-            <li><a href="#viajeros">SOAPEX para ingresar a Chile</a></li>
+            <li><a href="/rci-mercosur">Seguro RCI Mercosur (Guía & Requisitos)</a></li>
+            <li><a href="/soapex">Seguro SOAPEX Chile (Guía & Requisitos)</a></li>
             <li><a href="#servicios" data-open-modal data-subject="Vida y Personas">Vida y Personas</a></li>
             <li><a href="#servicios" data-open-modal data-subject="Seguros Colectivos">Seguros Colectivos</a></li>
           </ul>
@@ -1195,8 +1253,8 @@
       </div>
 
       <div class="footer-bottom">
-        <div data-i18n="footer_rights">© 2026 JSP Seguros · Jeanette Salinas Ponce (Corredora de Seguros Titular). Todos los derechos reservados.</div>
-        <div>Supervisada por la Comisión para el Mercado Financiero (CMF) de Chile.</div>
+        <div data-i18n="footer_rights">© 2026 JSP Seguros · Herminda Jeannette Salinas Ponce (Corredora de Seguros Titular · Registro CMF Nº 6066). Todos los derechos reservados.</div>
+        <div>Supervisada e inscrita ante la Comisión para el Mercado Financiero (CMF) de Chile.</div>
       </div>
     </div>
   </footer>
